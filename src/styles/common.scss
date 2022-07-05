@@ -1,3 +1,23 @@
-body {
+@import '~antd/dist/antd.css';
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    height: 100%;
     // background-color: #F00;
+}
+#root {
+    width: 100%;
+    height: 100%;
+}
+.Component_Page {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: auto;
+    background: #FFF;
 }

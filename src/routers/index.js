@@ -1,21 +1,10 @@
-import React from 'react'
+import { memo } from 'react'
 import {
-    BrowserRouter,
-    Routes,
-    Route,
-    Navigate,
+    useRoutes,
 } from "react-router-dom";
-import Login from '../component/login'
+import routes from './config';
 
-
-export default function index() {
-    return (
-        <>
-            <BrowserRouter>
-                <Routes>
-                    <Route path='/' element={<Login></Login>} />
-                </Routes>
-            </BrowserRouter>  
-        </>
-    )
-}
+export default memo(() => {   
+    const elements = useRoutes(routes);
+    return elements
+})

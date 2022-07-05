@@ -1,0 +1,67 @@
+.Layout {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right bottom, #97ABFF, #123597);
+}
+.Layout_Left {
+    width: 180px;
+    height: 100%;
+    border-right: 1px solid rgba($color: #FFFFFF, $alpha: .4);
+    float: left;
+    background: rgba($color: #000000, $alpha: .25);
+    position: relative;
+}
+.Layout_Right {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.Header {
+   width: 100%;
+   height: 50px;
+   background: rgba($color: #000000, $alpha: .25);
+}
+.Main {
+    flex: 1;
+    overflow: auto;
+    padding: 15px;
+}
+.logo{
+    width: 100%;
+    height: 50px;
+}
+
+.Layout{
+    :global{
+        .ant-menu {
+            background: transparent;
+        }
+        .ant-menu-inline {
+            // border-right: 1px solid rgba(255, 255, 255, .35);
+            border-right: none;
+        }
+        .ant-menu-inline .ant-menu-submenu-title,.ant-menu-item > a {
+            font-size: 16px;
+            color: rgba(255, 255, 255, .8);
+        }
+        .ant-menu-submenu > .ant-menu {
+            background: transparent;
+        }
+        .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::after,.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::before{
+            background: #FFF;
+        }
+        .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+            background: rgba(0, 0, 0, .15);
+        }
+        .ant-menu-inline .ant-menu-item::after,.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-submenu-active{
+            border-color: rgba(255, 255, 255, .8);
+            color: #FFF;
+        }
+        .ant-menu-inline > .ant-menu-item ,.ant-menu-sub.ant-menu-inline > .ant-menu-item,.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title{
+            height: 60px;
+            line-height: 60px;
+        }
+    }
+}
