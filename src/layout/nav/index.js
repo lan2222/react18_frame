@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'antd';
 import { find } from 'lodash';
@@ -21,12 +21,12 @@ const Nav = memo(() => {
                 )
             } else {
                 return (<Menu.Item key={Math.random()}>
-                    <Link to={(parentRoot + '/' + item.path).replaceAll('//','/')}>{item.title}</Link>
+                    <Link to={item.path ? (parentRoot + '/' + item.path).replaceAll('//','/') : item.redirect}>{item.title}</Link>
                 </Menu.Item>)  
             }
         })
     }
-    
+
     return (
         <div>
             <div className={css.logo}></div>

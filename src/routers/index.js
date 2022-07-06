@@ -1,7 +1,5 @@
 import { memo } from 'react'
-import {
-    useRoutes,
-} from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import routes from './config';
 
 export default memo(() => {   

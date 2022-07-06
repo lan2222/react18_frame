@@ -3,12 +3,14 @@
 // const List = lazy(() => { return import('../component/list') });
 // const Layout = lazy(() => { return import('../layout') });
 // const Login = lazy(() => { return import('../component/login') });
-
+import { useLocation } from 'react-router-dom';
 import Home from '../component/home';
 import Other from '../component/home/other';
 import List from '../component/list';
 import Layout from '../layout';
 import Login from '../component/login';
+import Screen from '../component/screen';
+
 
 const Menu = [
     {
@@ -45,13 +47,23 @@ const Menu = [
                 title: 'List',
                 element: <List/>
             },
+            {
+                title: 'Screen',
+                redirect: '/screen',
+            },
         ]
     },{
         path: '/login',
         title: 'Title',
         element: <Login />,
         isMenu: false,
+    },{
+        path: '/screen',
+        title: 'Screen',
+        element: <Screen />,
+        isMenu: false,
     }
+    
 ]
 
 

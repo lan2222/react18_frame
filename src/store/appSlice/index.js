@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { getList } from '@/api/app.js';
 
 export const appSlice = createSlice({
@@ -17,7 +17,7 @@ export const fetchPermission = params => async (dispatch, getState) => {
     const res = await getList(params);
     dispatch(setState({permission:res.data.data}));
     return res.data.data;
-    console.log(res.data.data, 'dddd')
+    // console.log(res.data.data, 'dddd')
 }
 
 // export const fetchPosts = createAsyncThunk('app/getPermission', async (params) => {
