@@ -6,8 +6,10 @@ export default function PermissionHoc (authorization) {
             const matchPermission = (value,list) => list.indexOf(value) 
             return  (
             <PermissionContext.Consumer>
-                {(permissionList) => 
-                    matchPermission(authorization,permissionList) >= 0 ? <Component {...props}></Component> : <div>你无权限</div>
+                {(permissionList) => {
+                    // console.log(permissionList, 'permissionList')
+                    return matchPermission(authorization,permissionList) >= 0 ? <Component {...props}></Component> : <div>你无权限</div>
+                }
                 }
             </PermissionContext.Consumer>
             )

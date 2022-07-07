@@ -5,17 +5,20 @@ import fetch from 'axios';
 export default function request(url, options) {
 
     return fetch(`${url}`, options)
-        // .catch(handleError)
-        // .then((response) => {
-        //     console.log(response,'response')
-        //     try{
-        //         return { data: response.data };
-        //     }catch(e){
-        //         return { data: response.data };
-        //     }
-        // });
+        .catch(handleError)
+        .then((response) => {
+            if(response.status === 200){
+                return{ data: response.data.data}
+            }
+            // console.log(response,'response')
+            // try{
+            //     return { data: response.data };
+            // }catch(e){
+            //     return { data: response.data };
+            // }
+        });
 }
 
-// function handleError(errorObj) {
-//     console.log('this is error!')
-// }
+function handleError(errorObj) {
+    console.log('this is error!')
+}

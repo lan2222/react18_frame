@@ -6,3 +6,10 @@ export async function getList(params) {
         params,
     })
 }
+
+export async function getListQuery(params) {
+    return request('https://cnodejs.org/api/v1/topics',{
+        method: 'get',
+        params: params.queryKey[1],
+    })
+}

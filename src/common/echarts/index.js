@@ -2,11 +2,13 @@ import React, { memo } from 'react';
 import Bar from './bar';
 
 const Echart = memo(({type, chartsProp}) => {
-  return (
-    <>
-        <Bar {...chartsProp}></Bar>
-    </>
-  )
+
+    switch(type){
+        case 'bar':
+            return <Bar {...chartsProp}></Bar>
+        default:
+            return <div>图表加载失败...</div>        
+    }
 })
 
 export default Echart

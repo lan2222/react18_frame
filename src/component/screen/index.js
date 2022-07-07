@@ -16,8 +16,7 @@ export default function Screen() {
         computeREM()
     }, [])
 
-    useEffect(() => {
-        
+    useEffect(() => {  
         return () => {
             let docEle = document.documentElement;
             docEle.removeAttribute('style');
@@ -45,7 +44,6 @@ export default function Screen() {
         }
     }
     
-
     return (
         <div className={css.screen}>
             <div className={css.col_left}>

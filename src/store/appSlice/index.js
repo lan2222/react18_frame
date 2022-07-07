@@ -15,8 +15,9 @@ export const appSlice = createSlice({
 
 export const fetchPermission = params => async (dispatch, getState) => {
     const res = await getList(params);
-    dispatch(setState({permission:res.data.data}));
-    return res.data.data;
+    console.log(res, 'slice-res')
+    dispatch(setState({permission:res.data}));
+    return res.data;
     // console.log(res.data.data, 'dddd')
 }
 

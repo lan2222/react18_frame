@@ -3,7 +3,6 @@
 // const List = lazy(() => { return import('../component/list') });
 // const Layout = lazy(() => { return import('../layout') });
 // const Login = lazy(() => { return import('../component/login') });
-import { useLocation } from 'react-router-dom';
 import Home from '../component/home';
 import Other from '../component/home/other';
 import List from '../component/list';
