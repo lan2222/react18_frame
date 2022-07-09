@@ -10,6 +10,8 @@ import Layout from '../layout';
 import Login from '../component/login';
 import Screen from '../component/screen';
 import Jxzl from '../component/screen/jxzl/index'
+import ScreenSummary from '../component/screen/xqzl';
+
 
 const Menu = [
     {
@@ -48,7 +50,7 @@ const Menu = [
             },
             {
                 title: 'Screen',
-                redirect: '/screen',
+                redirect: '/summary',
             },
         ]
     },{
@@ -66,6 +68,10 @@ const Menu = [
         path: '/jxzl',
         title: 'Jxzl',
         element: <Jxzl />,
+    },{
+        path: '/summary',
+        title: 'Summary',
+        element: <ScreenSummary />,
         isMenu: false,
     }
     
