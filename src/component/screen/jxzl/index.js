@@ -1,5 +1,8 @@
 import React, { useEffect, useLayoutEffect,Component } from 'react';
 import '../../../assets/css/jxzl.scss'
+import Header from '../common/header';
+import Footer from '../common/footer';
+
 
 export default function Jxzl() {
     // 这里可以做一个自定的 hooks 
@@ -30,8 +33,19 @@ class ClassAttend extends Component {
     render(){
         return(
             <div className='classAttend flex flex-column'>
-                <div className='classAttend-item currDay flex-1'>
-                    3232
+                <div className='classAttend-item currDay flex-1 flex flex-column'>
+                    <div className='head'>当日上课情况</div>
+                    <div className='tabBox'>
+                        <div className='tabBox-item'>拱宸桥校区</div>
+                        <div className='tabBox-item'>杨汛桥校区</div>
+                    </div>
+                    <div className='con flex-1'>
+                        <div className='echartBox'>
+                            <div className='echartBox-item'></div>
+                            <div className='echartBox-item'></div>
+                            <div className='echartBox-item'></div>
+                        </div>
+                    </div>
                 </div>
                 <div className='classAttend-item num'>
                     32323
@@ -102,8 +116,8 @@ class Person extends Component{
 class JxzlBox extends Component {
   render() {
     return (
-      <div className='layoutBox flex flex-column'>
-        <div className='header'>header</div>
+      <div className='layoutBox flex flex-column bg'>
+        <Header>浙江树人学院校情总览</Header>
         <div className='content flex flex-1'>
             <div className='content-item'>
                 <ClassAttend />
@@ -121,7 +135,7 @@ class JxzlBox extends Component {
                 <Person />
             </div>
         </div>
-        <div className='footer'>footer</div>
+        <Footer/>
       </div>
     )
   }

@@ -13,7 +13,14 @@
 .layoutBox{
     width: 100%;
     height: 100%;
+    &.bg{
+        width: 100%;
+        height: 100%;
+        background: url(../images/jxzl/bg.png) no-repeat;
+        background-size: 100%;
+    }
     .content{
+        padding: .15rem 0 .3rem 0;
         .content-item{
             width: 3.84rem;
             border: 1px solid red;
