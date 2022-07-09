@@ -58,8 +58,38 @@
     background-image: linear-gradient(#0055af, #002b54);
 }
 
+.mt20{
+    margin-top: .2rem;
+}
+
+.block_header{
+    background: rgb(34,37,90);
+    width: 100%;
+    height: .35rem;
+    padding: .07rem;
+    .dot{ 
+        height: 100%;
+        line-height: .2rem;
+        background: url('../../assets/images/xqzl/left_icon.png') no-repeat left center;
+        padding-left: .5rem;
+        font-size: .18rem;
+        color: rgb(153, 234, 250);
+        float: left;
+    }
+    .flag{
+        background: url('../../assets//images//xqzl/right_icon.png') no-repeat left center;
+        height: 100%;
+        width: 1rem;
+        float: left;
+        overflow: hidden;
+        margin-left: .2rem;
+        background-size: 100% 100%;
+    }
+}
+
 .xqzl {
     background: url('../../assets/images/xqzl/bg.png');
+    background-size: 100% 100%;
 }
 
 
