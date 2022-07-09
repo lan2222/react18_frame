@@ -1,11 +1,12 @@
 import React, { memo, useEffect } from 'react'
 import PermissionHoc from '@/utils/permissionHoc';
 import { connect } from 'react-redux';
-import { QuseQuery, useQuery } from 'react-query';
+import { useQuery } from 'react-query';
 import { getListQuery } from '@/api/app.js'
 
 const List = memo(({app}) => {
 
+    // useQuery(['getPostList',{page: 2, limit: 5}], getListQuery,{ cacheTime: 0 }); 这样写数据就不缓存了，直接获取最新值
     const { isLoading, isError, data, error } = useQuery(['getPostList',{page: 2, limit: 5}], getListQuery);
     
     return (
