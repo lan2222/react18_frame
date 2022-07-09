@@ -9,6 +9,7 @@ import List from '../component/list';
 import Layout from '../layout';
 import Login from '../component/login';
 import Screen from '../component/screen';
+import ScreenSummary from '../component/screen/xqzl';
 
 
 const Menu = [
@@ -48,7 +49,7 @@ const Menu = [
             },
             {
                 title: 'Screen',
-                redirect: '/screen',
+                redirect: '/summary',
             },
         ]
     },{
@@ -60,6 +61,11 @@ const Menu = [
         path: '/screen',
         title: 'Screen',
         element: <Screen />,
+        isMenu: false,
+    },{
+        path: '/summary',
+        title: 'Summary',
+        element: <ScreenSummary />,
         isMenu: false,
     }
     

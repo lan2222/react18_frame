@@ -4,6 +4,7 @@
     // background: linear-gradient(to right bottom, rgb(14,40,113), rgb(6,24,71));
     background: linear-gradient(to right bottom, rgba(14,40,113,.3), rgba(6,24,71,.4));
     display: flex;
+    flex-direction: column;
 }
 .col_left {
     width: 5rem;
@@ -29,6 +30,36 @@
 .fullBox {
     width: 100%;
     height: 100%;
+}
+.sreenMain{
+    flex: 1;
+}
+.Header{
+    width: 100%;
+    height: .95rem;
+    background: url('../../assets//images/xqzl/head.png') no-repeat;
+    background-size: 100% 100%;
+    line-height: .85rem;
+    font-size: .45rem;
+    font-weight: bold;
+    text-align: center;
+    color: #FFF;
+    .title{
+        background-image: linear-gradient(rgb(106,207,247), rgb(61,111,218));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+.Footer{
+    width: 100%;
+    height: 1.5rem;
+    background-image: linear-gradient(#0055af, #002b54);
+}
+
+.xqzl {
+    background: url('../../assets/images/xqzl/bg.png');
 }
 
 

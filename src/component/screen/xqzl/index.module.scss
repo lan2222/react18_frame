@@ -1,0 +1,22 @@
+.sreenMain{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+.summary_column_1{
+    width: 3.75rem;
+    height: 100%;
+    padding-right: .2rem;
+    background: #FFF;
+}
+.summary_column_2{
+    flex: 1;
+    background: #999;
+}
+.summary_column_3{
+    width: 2.85rem;
+    height: 100%;
+    padding-left: .2rem;
+    background: #666;
+}
+
