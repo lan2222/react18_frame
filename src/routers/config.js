@@ -9,7 +9,7 @@ import List from '../component/list';
 import Layout from '../layout';
 import Login from '../component/login';
 import Screen from '../component/screen';
-
+import Jxzl from '../component/screen/jxzl/index'
 
 const Menu = [
     {
@@ -60,6 +60,12 @@ const Menu = [
         path: '/screen',
         title: 'Screen',
         element: <Screen />,
+        isMenu: false,
+    },
+    {
+        path: '/jxzl',
+        title: 'Jxzl',
+        element: <Jxzl />,
         isMenu: false,
     }
     
