@@ -12,7 +12,12 @@ const Bar = memo(({id, title, series, option }) => {
             title: {
                 text: title,
                 top: 0,
-                },
+                left:'center',
+                textStyle:{
+                    color:'#fff',
+                    fontSize:14,
+                }
+            },
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
@@ -38,16 +43,18 @@ const Bar = memo(({id, title, series, option }) => {
                 type: 'category',
                 data: []
             },
-            series: series
+            series: series,
+            ...option
         }
-        console.log(defaultOption, 'Bar Echart')
         if(!echartObj){
             barChart.setOption({
-                ...defaultOption, ...option
+                ...defaultOption,
             })
+            console.log(JSON.stringify({...defaultOption, ...option}),'1')
         } else {
             setTimeout(()=>{barChart.resize()},400)
         }
+        
     }, [id, option, series, title])
 
     return (

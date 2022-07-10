@@ -8,9 +8,6 @@ export default function Block({title}) {
             <div className={css.dot}>{title}</div>
             <div className={css.flag}></div>
         </div>
-        <div>
-            23232
-        </div>
     </div>
   )
 }

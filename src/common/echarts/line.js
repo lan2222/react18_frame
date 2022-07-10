@@ -24,6 +24,7 @@ function ChartLine({id, title, series, option }) {
                 data: ['payout', 'top-up']
             },
             grid: {
+                top:'5%',
                 left: '3%',
                 right: '5%',
                 bottom: '3%',
@@ -38,15 +39,17 @@ function ChartLine({id, title, series, option }) {
                 type: 'value'
             },
             series: series,
+            ...option,
         }
         
         if(!echartObj){
             lineChart.setOption({
-                ...defaultOption, ...option
+                ...defaultOption
             },true)
         } else {
             setTimeout(()=>{lineChart.resize()},400)
         }
+        
     }, [id, option, series, title])
     
     return (

@@ -2,7 +2,8 @@ import React, { useEffect, useLayoutEffect,Component } from 'react';
 import '../../../assets/css/jxzl.scss'
 import Header from '../common/header';
 import Footer from '../common/footer';
-
+import Block from '../common/frame/block';
+import Echart from '@/common/echarts'
 
 export default function Jxzl() {
     // 这里可以做一个自定的 hooks 
@@ -18,6 +19,7 @@ export default function Jxzl() {
     }, [])
 
     useEffect(() => {  
+        computeREM()
         return () => {
             let docEle = document.documentElement;
             docEle.removeAttribute('style');
@@ -28,27 +30,268 @@ export default function Jxzl() {
   )
 }
 
+
+class Head extends Component{
+    constructor(props){
+        super(props)
+        this.title = props.title
+    }
+    render(){
+        return(
+            <div className='headBg'>
+                <div className='title'>{this.title}</div>
+            </div>
+        )
+    }
+}
+
+// echart
+
 // 当日上课情况
 class ClassAttend extends Component {
+    state = {
+        activeIndex:0,
+    }
+    schoolArea = ['拱宸桥校区','杨汛桥校区']
+    changeAttend = (index)=>{
+        return ()=>{
+            this.setState({activeIndex:index})
+        }
+    }
+    lineProps = ()=>{
+        this.series = {
+            type: 'line',
+            chartsProp: {
+				id: parseInt(Math.random()*10000),
+                title:'',
+				option: {
+					type: 'value',
+					yAxis: {
+						axisLabel: {
+                            color:'#fff'
+						},
+                        splitLine:{show:false}
+					},
+					xAxis: {
+						type: 'category',
+						boundaryGap: false,
+                        axisLabel:{
+                            color:'#fff'
+                        },
+						data: ['8:00','10:00','12:00','14:00','16:00','18:00','20:00','22:00']
+					}
+				},
+				series: {
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: {},
+                    smooth: true,
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [10, 20, 10, 40, 20, 30,40,20]
+                }
+			}
+        }
+        return this.series
+    }
+    studenNums = ()=>{
+        return {
+            type:'line',
+            chartsProp:{
+                id: parseInt(Math.random()*10000),
+                title:'',
+                option:{
+                    type: 'value',
+                    legend: {
+                        data:['学生数','老师数'],
+                        right:'0',
+                        orient:'vertical',
+                        textStyle:{
+                            color:'#fff',
+                        }
+                      },
+					yAxis: [{
+						axisLabel: {
+                            color:'#fff'
+						},
+                        splitLine:{show:false}
+					}],
+					xAxis: [{
+						type: 'category',
+						boundaryGap: false,
+                        axisLabel:{
+                            color:'#fff'
+                        },
+						data: ['8:00','10:00','12:00','14:00','16:00','18:00','20:00','22:00']
+					}]
+                },
+                series:[
+                    {
+                        name: '学生数',
+                        type: 'line',
+                        stack: 'Total',
+                        areaStyle: {},
+                        emphasis: {
+                          focus: 'series'
+                        },
+                        smooth: true,
+                        data: [120, 132, 101, 134, 90, 230, 210]
+                      },
+                      {
+                        name: '老师数',
+                        type: 'line',
+                        stack: 'Total',
+                        areaStyle: {},
+                        emphasis: {
+                          focus: 'series'
+                        },
+                        smooth: true,
+                        data: [220, 182, 191, 234, 290, 330, 310]
+                      },
+                ]
+            }
+        }
+    }
+    attendNums = ()=>{
+        return{
+            type:'line',
+            chartsProp:{
+                id: parseInt(Math.random()*10000),
+                title:'',
+                option:{
+                    type: 'value',
+                    legend: {
+                        data:['学生数','老师数'],
+                        right:'0',
+                        orient:'vertical',
+                        textStyle:{
+                            color:'#fff',
+                        }
+                      },
+					yAxis: [{
+						axisLabel: {
+                            color:'#fff'
+						},
+                        splitLine:{show:false}
+					}],
+					xAxis: [{
+						type: 'category',
+						boundaryGap: false,
+                        axisLabel:{
+                            color:'#fff'
+                        },
+						data: ['8:00','10:00','12:00','14:00','16:00','18:00','20:00','22:00']
+					}]
+                },
+                series:[
+                    {
+                        name: '学生数',
+                        type: 'line',
+                        stack: 'Total',
+                        areaStyle: {},
+                        emphasis: {
+                          focus: 'series'
+                        },
+                        smooth: true,
+                        data: [120, 132, 101, 134, 90, 230, 210]
+                      },
+                      {
+                        name: '老师数',
+                        type: 'line',
+                        stack: 'Total',
+                        areaStyle: {},
+                        emphasis: {
+                          focus: 'series'
+                        },
+                        smooth: true,
+                        data: [220, 182, 191, 234, 290, 330, 310]
+                      },
+                ]
+            }
+        }
+    }
     render(){
         return(
             <div className='classAttend flex flex-column'>
                 <div className='classAttend-item currDay flex-1 flex flex-column'>
-                    <div className='head'>当日上课情况</div>
-                    <div className='tabBox'>
-                        <div className='tabBox-item'>拱宸桥校区</div>
-                        <div className='tabBox-item'>杨汛桥校区</div>
+                    <Block title='发展大事记'></Block>
+                    <div className='tabBox flex'>
+                        {
+                            this.schoolArea.map((item,index)=>{
+                                return(
+                                    <div className={`tabBox-item flex-1 ${this.state.activeIndex == index ? 'active' : ''}`} key={item} onClick={this.changeAttend(index)}>{item}</div>
+                                )
+                            })
+                        }
+                        
                     </div>
                     <div className='con flex-1'>
-                        <div className='echartBox'>
-                            <div className='echartBox-item'></div>
-                            <div className='echartBox-item'></div>
-                            <div className='echartBox-item'></div>
+                        <div className='echartBox flex flex-column'>
+                            <div className='echartBox-item flex flex-column'>
+                                <Head title='今日上课课程/门'/>
+                                <div className='echart flex-1'>
+                                    <Echart {...this.lineProps()}></Echart>  
+                                </div>
+                            </div>
+                            <div className='echartBox-item flex flex-column'>
+                                <Head title='今日上课师生数/人'/>
+                                <div className='echart flex-1'>
+                                    <Echart {...this.studenNums()}></Echart>
+                                </div>
+                            </div>
+                            <div className='echartBox-item flex flex-column'>
+                                <Head title='今日考勤情况/人'/>
+                                <div className='echart flex-1'>
+                                    <Echart {...this.attendNums()}></Echart>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className='classAttend-item num'>
-                    32323
+                    <div className='numBox flex flex-wrap'>
+                        <div className='numBox-item'>
+                            <div className='list flex flex-column justify-center'>
+                                <Head title='学生今日活跃度'/>
+                                <div className='textBox flex-1 flex align-center'>
+                                    <label className='title'>12345</label>
+                                    <span className={`icon up`}></span>
+                                    <span className='nums'>31%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='numBox-item'>
+                            <div className='list  flex flex-column justify-center'>
+                                <Head title='学生七日活跃度'/>
+                                <div className='textBox flex-1 flex align-center'>
+                                    <label className='title'>12345</label>
+                                    <span className={`icon up`}></span>
+                                    <span className='nums'>31%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='numBox-item'>
+                            <div className='list  flex flex-column justify-center'>
+                                <Head title='今日在线教师数'/>
+                                <div className='textBox flex-1 flex align-center'>
+                                    <label className='title'>12345</label>
+                                    <span className={`icon up`}></span>
+                                    <span className='nums'>31%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='numBox-item'>
+                            <div className='list flex flex-column justify-center'>
+                                <Head title='今日在线学生数'/>
+                                <div className='textBox flex-1 flex align-center'>
+                                    <label className='title'>12345</label>
+                                    <span className={`icon up`}></span>
+                                    <span className='nums'>31%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
@@ -58,11 +301,180 @@ class ClassAttend extends Component {
 
 // 课程建设概况
 class CourseBuilding extends Component{
+    pieProps = ()=>{
+        return{
+            type: 'line',
+            chartsProp: {
+				id: parseInt(Math.random()*10000),
+                title:'',
+                series:[
+                    {
+                        type: 'pie',
+                        radius: '50%',
+                        center:['30%','50%'],
+                        label: {
+                            show: false,
+                        },
+                        data: [
+                            { value: 1048, name: '国家级一流课程' },
+                            { value: 735, name: '省级一流课程' },
+                            { value: 580, name: '校级课程' },
+                        ],
+                    }
+                ],
+                option:{
+                    title: {
+                        text: '课程建设情况',
+                        top: '3%',
+                        left: 'center',
+                        textStyle: { color: '#fff', fontSize: 14 }
+                    },
+                    legend: { 
+                        bottom: 'center',
+                        right: '5%',
+                        itemWidth:10,
+                        itemHeight:10,
+                        orient:'vertical',
+                        textStyle:{
+                          color:'#fff'
+                        },
+                        data:['国家级一流课程','省级一流课程','校级课程']
+                    },
+                }
+            }
+        }
+    }
+    courseProps = ()=>{
+        return{
+            type: 'line',
+            chartsProp: {
+				id: parseInt(Math.random()*10000),
+                title:'',
+                series:[
+                    {
+                        type: 'pie',
+                        radius: '50%',
+                        center:['30%','50%'],
+                        label: {
+                            show: false,
+                        },
+                        data: [
+                            { value: 1048, name: '省级思政示范课程' },
+                            { value: 735, name: '校级思政示范课程' },
+                        ],
+                    }
+                ],
+                option:{
+                    title: {
+                        text: '思政课程情况',
+                        top: '3%',
+                        left: 'center',
+                        textStyle: { color: '#fff', fontSize: 14 }
+                    },
+                    legend: { 
+                        bottom: 'center',
+                        right: '5%',
+                        itemWidth:10,
+                        itemHeight:10,
+                        orient:'vertical',
+                        textStyle:{
+                          color:'#fff'
+                        },
+                        data:['省级思政示范课程','校级思政示范课程']
+                    },
+                }
+            }
+        }
+    }
+    barProps = ()=>{
+        return{
+            type:'bar',
+            chartsProp:{
+                id: parseInt(Math.random()*10000),
+                title:'',
+                option:{
+                    title: {
+                        text: '教学经费情况',
+                        top: '3%',
+                        left: 'center',
+                        textStyle: { color: '#fff', fontSize: 14 }
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            boundaryGap: false,
+                            axisLabel:{
+                                color:'#fff'
+                            },
+                            data: ['2018','2019','2020','2021','2022']
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            axisLabel:{
+                                color:'#fff'
+                            }
+                        }
+                    ],
+                    grid:{
+                        left: '3%',
+                        right: '4%',
+                        bottom: '5%',
+                        top: '18%',
+                        containLabel: true
+                    },
+                    legend:{
+                        show:false
+                    }
+                },
+                series:[
+                    {
+                        name: '教育经费详情',
+                        type: 'bar',
+                        barWidth: 15,
+                        label: {
+                            show: false,
+                        },
+                        data: [110, 154, 45, 144, 144],
+                    },
+                    {
+                        name: '累计',
+                        type: 'line',
+                        symbolSize: 3,
+                        symbol: 'emptyCircle',
+                        smooth: true,
+                        data: [110, 22, 222, 33, 444],
+                      },
+                ]
+            }
+        }
+    }
     render(){
         return(
             <div className='CourseBuilding flex flex-column'>
-                <div className='CourseBuilding-item build'></div>
-                <div className='CourseBuilding-item condition'></div>
+                <div className='CourseBuilding-item build  flex flex-column'>
+                    <Block title='课程建设概况'></Block>
+                    <div className='CourseBuilding-content flex flex-1 flex-column'>
+                        <div className='echart flex-1 mb10'>
+                            <Echart {...this.pieProps()}></Echart>
+                        </div>
+                        <div className='echart flex-1'>
+                            <Echart {...this.courseProps()}></Echart>
+                        </div>
+                    </div>
+                </div>
+                <div className='CourseBuilding-item condition  flex flex-column'>
+                    <Block title='教学条件'></Block>
+                    <div className='CourseBuilding-content flex flex-1 flex-column'>
+                        <div className='echart flex-1 mb10'>
+                            
+                        </div>
+                        <div className='echart flex-1'>
+                            <Echart {...this.barProps()}></Echart>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -71,12 +483,334 @@ class CourseBuilding extends Component{
 
 // 专业概况
 class Professional extends Component{
+    barProps = ()=>{
+        return{
+            type:'bar',
+            chartsProp: {
+                id: parseInt(Math.random()*10000),
+                title:'',
+                option:{
+                    legend: { 
+                        bottom: 0,
+                        left: 'center',
+                        itemWidth:10,
+                        itemHeight:10,
+                        textStyle:{
+                          color:'#fff',
+                          fontSize:8,
+                        }
+                    },
+                    grid:{
+                        left: '3%',
+                        right: '4%',
+                        bottom: '15%',
+                        top: '18%',
+                        containLabel: true
+                    },
+                    title: {
+                        text: '教学成果奖情况',
+                        top: '3%',
+                        left: 'center',
+                        textStyle: { color: '#fff', fontSize: 10 }
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            axisLabel: {
+                                color:'#fff',
+                                fontSize:8,
+                            },
+                            data: ['2018', '2019', '2020', '2021', '2022']
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            axisLabel: {
+                                color:'#fff',
+                                fontSize:8,
+                            },
+                        }
+                    ],
+                },
+                series:[
+                    {
+                        name: '国家级',
+                        type: 'bar',
+                        barGap: 0,
+                        barWidth:5,
+                        label:{fontSize:8,},
+                        data: [40, 50, 30, 70, 80]
+                    },
+                    {
+                        name: '省级',
+                        type: 'bar',
+                        label:{fontSize:8,},
+                        barGap: 0,
+                        barWidth:5,
+                        data: [50, 60, 40, 70, 80]
+                    },
+                    {
+                        name: '厅局级',
+                        type: 'bar',
+                        label:{fontSize:8,},
+                        barGap: 0,
+                        barWidth:5,
+                        data: [60, 70, 50, 70, 80]
+                    },
+                    {
+                        name: '校级',
+                        type: 'bar',
+                        label:{fontSize:8,},
+                        barGap: 0,
+                        barWidth:5,
+                        data: [70, 80, 60, 70, 80]
+                    }
+                ]
+            }
+        }
+    }
+    barProps1 = ()=>{
+        return{
+            type:'bar',
+            chartsProp: {
+                id: parseInt(Math.random()*10000),
+                title:'',
+                option:{
+                    legend: { 
+                        bottom: 0,
+                        left: 'center',
+                        itemWidth:10,
+                        itemHeight:10,
+                        textStyle:{
+                          color:'#fff',
+                          fontSize:8,
+                        },
+                        show:false,
+                    },
+                    grid:{
+                        left: '3%',
+                        right: '4%',
+                        bottom: '15%',
+                        top: '18%',
+                        containLabel: true
+                    },
+                    title: {
+                        text: '读研率',
+                        top: '3%',
+                        left: 'center',
+                        textStyle: { color: '#fff', fontSize: 10 }
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            axisLabel: {
+                                color:'#fff',
+                                fontSize:8,
+                            },
+                            data: ['2018', '2019', '2020', '2021', '2022']
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            axisLabel: {
+                                color:'#fff',
+                                fontSize:8,
+                            },
+                        }
+                    ],
+                },
+                series:[
+                    {
+                        name: '国家级',
+                        type: 'bar',
+                        barGap: 0,
+                        barWidth:10,
+                        label:{fontSize:8,},
+                        data: [40, 50, 30, 70, 80]
+                    }
+                ]
+            }
+        }
+    }
+    lineProps = ()=>{
+        return{
+            type:'line',
+            chartsProp:{
+                id: parseInt(Math.random()*10000),
+                title:'',
+                option:{
+                    legend: { 
+                        bottom: 0,
+                        left: 'center',
+                        textStyle:{
+                          color:'#fff',
+                          fontSize:8,
+                        },
+                    },
+                    grid:{
+                        left: '3%',
+                        right: '4%',
+                        bottom: '15%',
+                        top: '18%',
+                        containLabel: true
+                    },
+                    title: {
+                        text: '学生满意度',
+                        top: '3%',
+                        left: 'center',
+                        textStyle: { color: '#fff', fontSize: 10 }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        axisLabel: {
+                            color:'#fff',
+                            fontSize:8,
+                        },
+                        data: ['2018', '2019', '2020', '2021', '2022']
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: {
+                            color:'#fff',
+                            fontSize:8,
+                        },
+                    }
+                },
+                series:[
+                    {
+                        name: '毕业生',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [120, 132, 101, 134, 90, 230, 210]
+                      },
+                      {
+                        name: '全校学生',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [220, 182, 191, 234, 290, 330, 310]
+                      }
+                ]
+            }
+        }
+    }
+    lineProps1 = ()=>{
+        return{
+            type:'bar',
+            chartsProp:{
+                id: parseInt(Math.random()*10000),
+                title:'',
+                option:{
+                    legend: { 
+                        bottom: 0,
+                        left: 'center',
+                        itemWidth:10,
+                        itemHeight:10,
+                        textStyle:{
+                          color:'#fff',
+                          fontSize:8,
+                        },
+                        data:['我校创业率','全省平均创业率','在全省本科高校排名']
+                    },
+                    grid:{
+                        left: '3%',
+                        right: '4%',
+                        bottom: '15%',
+                        top: '18%',
+                        containLabel: true
+                    },
+                    title: {
+                        text: '近年来创业率',
+                        top: '3%',
+                        left: 'center',
+                        textStyle: { color: '#fff', fontSize: 10 }
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        axisLabel: {
+                            color:'#fff',
+                            fontSize:8,
+                        },
+                        data: ['2018', '2019', '2020', '2021', '2022']
+                    }],
+                    yAxis:[{
+                        type: 'value',
+                        axisLabel: {
+                            color:'#fff',
+                            fontSize:8,
+                        },
+                    }]
+                },
+                series:[
+                    {
+                        name: '我校创业率',
+                        type: 'bar',
+                        stack:1,
+                        stack: 'Total',
+                        barWidth:10,
+                        data: [120, 132, 101, 134, 90, 230, 210]
+                    },
+                    {
+                        name: '全省平均创业率',
+                        type: 'bar',
+                        stack:1,
+                        barWidth:10,
+                        stack: 'Total',
+                        data: [120, 132, 101, 134, 90, 230, 210]
+                    },
+                    {
+                        name: '在全省本科高校排名',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [220, 182, 191, 234, 290, 330, 310]
+                    }
+                ]
+            }
+        }
+    }
     render(){
         return(
             <div className='Professional flex flex-column'>
-                <div className='Professional-item major'></div>
-                <div className='Professional-item study'></div>
-                <div className='Professional-item teach'></div>
+                <div className='Professional-item major'>
+                    <Block title='专业概况'></Block>
+                </div>
+                <div className='Professional-item study flex flex-column'>
+                    <Block title='学习效果概况'></Block>
+                    <div className='Professional-content flex flex-wrap flex-1'>
+                        <div className='list'>
+                            <div className='list-box'>
+                                <Echart {...this.barProps()}></Echart> 
+                            </div>
+                        </div>
+                        <div className='list'>
+                            <div className='list-box'>
+                                <Echart {...this.barProps1()}></Echart> 
+                            </div>
+                        </div>
+                        <div className='list'>
+                            <div className='list-box'>
+                                <Echart {...this.lineProps()}></Echart> 
+                            </div>
+                        </div>
+                        <div className='list'>
+                            <div className='list-box'>
+                                <Echart {...this.lineProps1()}></Echart> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='Professional-item teach flex flex-column'>
+                    <Block title='教考分离'></Block>
+                    <div className='Professional-content flex flex-wrap flex-1'>
+                        <div className='list'>
+                            <div className='list-box'></div>
+                        </div>
+                        <div className='list'>
+                            <div className='list-box'></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -85,11 +819,183 @@ class Professional extends Component{
 
 // 教学项目概况
 class Project extends Component{
+    barProps = ()=>{
+        return{
+            type: 'bar',
+            chartsProp: {
+                id: parseInt(Math.random()*10000),
+                title:'',
+                option:{
+                    legend: { 
+                        bottom: 0,
+                        left: 'center',
+                        itemWidth:10,
+                        itemHeight:10,
+                        textStyle:{
+                          color:'#fff'
+                        }
+                    },
+                    grid:{
+                        left: '3%',
+                        right: '4%',
+                        bottom: '15%',
+                        top: '18%',
+                        containLabel: true
+                    },
+                    title: {
+                        text: '教学成果奖情况',
+                        top: '3%',
+                        left: 'center',
+                        textStyle: { color: '#fff', fontSize: 14 }
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            axisLabel: {
+                                color:'#fff'
+                            },
+                            data: ['2018', '2019', '2020', '2021', '2022']
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            axisLabel: {
+                                color:'#fff'
+                            },
+                        }
+                    ],
+                },
+                series:[
+                    {
+                        name: '国家级',
+                        type: 'bar',
+                        barGap: 0,
+                        barWidth:10,
+                        data: [40, 50, 30, 70, 80]
+                    },
+                    {
+                        name: '省级',
+                        type: 'bar',
+                        barGap: 0,
+                        barWidth:10,
+                        data: [50, 60, 40, 70, 80]
+                    },
+                    {
+                        name: '厅局级',
+                        type: 'bar',
+                        barGap: 0,
+                        barWidth:10,
+                        data: [60, 70, 50, 70, 80]
+                    },
+                    {
+                        name: '校级',
+                        type: 'bar',
+                        barGap: 0,
+                        barWidth:10,
+                        data: [70, 80, 60, 70, 80]
+                    }
+                ]
+            }
+        }
+    }
+    itemProps = ()=>{
+        return{
+            type: 'bar',
+            chartsProp: {
+                id: parseInt(Math.random()*10000),
+                title:'',
+                option:{
+                    legend: { 
+                        bottom: 0,
+                        left: 'center',
+                        itemWidth:10,
+                        itemHeight:10,
+                        textStyle:{
+                          color:'#fff'
+                        }
+                    },
+                    grid:{
+                        left: '3%',
+                        right: '4%',
+                        bottom: '15%',
+                        top: '18%',
+                        containLabel: true
+                    },
+                    title: {
+                        text: '教学项目情况',
+                        top: '3%',
+                        left: 'center',
+                        textStyle: { color: '#fff', fontSize: 14 }
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            axisLabel: {
+                                color:'#fff'
+                            },
+                            data: ['2018', '2019', '2020', '2021', '2022']
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            axisLabel: {
+                                color:'#fff'
+                            },
+                        }
+                    ],
+                },
+                series:[
+                    {
+                        name: '国家级',
+                        type: 'bar',
+                        barGap: 0,
+                        barWidth:10,
+                        data: [40, 50, 30, 70, 80]
+                    },
+                    {
+                        name: '省级',
+                        type: 'bar',
+                        barGap: 0,
+                        barWidth:10,
+                        data: [50, 60, 40, 70, 80]
+                    },
+                    {
+                        name: '厅局级',
+                        type: 'bar',
+                        barGap: 0,
+                        barWidth:10,
+                        data: [60, 70, 50, 70, 80]
+                    },
+                    {
+                        name: '校级',
+                        type: 'bar',
+                        barGap: 0,
+                        barWidth:10,
+                        data: [70, 80, 60, 70, 80]
+                    }
+                ]
+            }
+        }
+    }
     render(){
         return(
             <div className='Project flex flex-column'>
-                <div className='Project-item proj'>12121</div>
-                <div className='Project-item rate'>wewewe</div>
+                <div className='Project-item proj flex flex-column'>
+                    <Block title='教学项目概况'></Block>
+                    <div className='Project-content flex-1 flex flex-column'>
+                        <div className='list mb10'>
+                            <Echart {...this.barProps()}></Echart>  
+                        </div>
+                        <div className='list'>
+                        <Echart {...this.itemProps()}></Echart>  
+                        </div>
+                    </div>
+                </div>
+                <div className='Project-item rate'>
+
+                </div>
             </div>
         )
     }
@@ -104,7 +1010,62 @@ class Person extends Component{
                     3131231
                 </div>
                 <div className='Person-item resources'>
-                    31231231
+                    <div className='numBox flex flex-wrap'>
+                        <div className='numBox-item'>
+                            <div className='list flex flex-column justify-center'>
+                                <Head title='网络课程数'/>
+                                <div className='textBox flex-1 flex align-center justify-center'>
+                                    <label className='title'>12345</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='numBox-item'>
+                            <div className='list  flex flex-column justify-center'>
+                                <Head title='网络教学班'/>
+                                <div className='textBox flex-1 flex align-center justify-center'>
+                                    <label className='title'>12345</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='numBox-item h60'>
+                            <div className='list  flex flex-column justify-center'>
+                                <Head title='全校教学题库量'/>
+                                <div className='textBox flex-1 flex align-center flex-column'>
+                                    <label className='title'>12345</label>
+                                    <div className='more'>
+                                        <label className='more-title'>题库数最多课程</label>
+                                        <label className='title'>电工技术</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='numBox-item h60'>
+                            <div className='list flex flex-column justify-center'>
+                                <Head title='全校资源数'/>
+                                <div className='textBox flex-1 flex align-center flex-column '>
+                                    <label className='title'>12345</label>
+                                    <div className='more flex flex-wrap'>
+                                        <div className='text-item'>
+                                            <label className='bt'>图片</label>
+                                            <label className='val'>1234567</label>
+                                        </div>
+                                        <div className='text-item'>
+                                            <label className='bt'>音频</label>
+                                            <label className='val'>12345</label>
+                                        </div>
+                                        <div className='text-item'>
+                                            <label className='bt'>文本</label>
+                                            <label className='val'>12345</label>
+                                        </div>
+                                        <div className='text-item'>
+                                            <label className='bt'>视频</label>
+                                            <label className='val'>12345</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
@@ -117,7 +1078,7 @@ class JxzlBox extends Component {
   render() {
     return (
       <div className='layoutBox flex flex-column bg'>
-        <Header>浙江树人学院校情总览</Header>
+        <Header>浙江树人学院教学总览</Header>
         <div className='content flex flex-1'>
             <div className='content-item'>
                 <ClassAttend />
@@ -125,7 +1086,7 @@ class JxzlBox extends Component {
             <div className='content-item'>
                 <CourseBuilding />
             </div>
-            <div className='content-item'>
+            <div className='content-item per'>
                 <Professional />
             </div>
             <div className='content-item'>

@@ -24,11 +24,13 @@ function ChartPie({id, title, series, option }) {
           bottom: 20,
           left: 'center'
         },
-        series: series
+        series: series,
+        ...option
       }
-
+      console.log(JSON.stringify({...defaultOption, ...option}),'1')
       if(!echartObj){
-        pieChart.setOption({ ...defaultOption, ...option })
+        pieChart.setOption({ ...defaultOption,  })
+        
       } else {
         setTimeout(()=>{pieChart.resize()},400)
     }
