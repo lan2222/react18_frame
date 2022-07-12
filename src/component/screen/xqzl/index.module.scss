@@ -12,6 +12,75 @@
         width: 100%;
         height: 3.9rem;
         background: rgba($color: #0d2e68, $alpha: .8);
+        .schoolLogo{
+            width: 100%;
+            height: .5rem;
+            background: url('../../../assets/images/xqzl/logo.png') #25225A no-repeat center center;
+            background-size: auto 80%;
+        }
+        .schoolInfo{
+            margin: .2rem;
+            .infoRow{
+                width: 100%;
+                overflow: hidden;
+                .title{
+                    position: relative;
+                    width: .8rem;
+                    height: .3rem;
+                    line-height: .3rem;
+                    font-weight: bold;
+                    font-size: .16rem;
+                    color: #76C1EC;
+                    text-align: justify;
+                    float: left;
+                    i{
+                        display: inline-block;
+                        height: 1px;
+                        width: 100%;
+                    }
+                }
+                .title::after{
+                    content: ':';
+                    position: absolute;
+                    top: 0;
+                    right: -.15rem;
+                }
+                .content{
+                    overflow: hidden;
+                    line-height: .3rem;
+                    padding-left: .25rem;
+                    font-size: .16rem;
+                    color: #FFF;
+                }
+            }
+        }
+        .presidentList{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .presidentBox{
+                flex: 1;
+                .photo{
+                    margin: 0 auto;
+                    width: .9rem;
+                    height: 1.1rem;
+                    background: #999;
+                }
+                .name{
+                    padding-top: .05rem;
+                    margin: 0 auto;
+                    text-align: center;
+                    font-size: .16rem;
+                    color: #76C1EC;
+                    font-weight: bold;
+                    span{
+                        color: #FFF;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
     }
     .Box_2{
         width: 100%;
@@ -29,6 +98,133 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        .resourceList{
+            .resourceBox{
+                width: .9rem;
+                height: 1.1rem;
+                float: left;
+                margin-left: .09rem;
+                margin-top: .08rem;
+                display: flex;
+                flex-direction: column;
+                .title{
+                    width: 100%;
+                    height: .3rem;
+                    font-size: .12rem;
+                    background: #244995;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: rgba($color: #FFFFFF, $alpha: .8);
+                }
+                .box{
+                    background: url('../../../assets/images/xqzl/xkjs_border.png');
+                    background-size: 100% 100%;
+                    flex: 1;
+                    display: flex;
+                    .icon{
+                        flex: 1;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                    }
+                    img{
+                        width: 35%;
+                    }
+                    .info{
+                        padding-top: .05rem;
+                        font-size: .12rem;
+                        display: block;
+                        text-align: center;
+                        color: #F5D04A;
+                        font-weight: bold;
+                        line-height: 1.5em;
+                        i{
+                            font-weight: normal;
+                            font-size: .12rem;
+                            color: #FFF;
+                            font-style: normal;
+                        }
+                    }
+                }
+            }
+        }
+
+        .subjectType{
+            width: 1.4rem;
+            height: 2.1rem;
+            margin-top: .2rem;
+            margin-left: .2rem;
+            display: flex;
+            flex-direction: column;
+            float: left;
+            .subjectTit{
+                width: 100%;
+                height: .4rem;
+                line-height: .4rem;
+                text-align: center;
+                font-size: .2rem;
+                color: #FFF;
+                background: #244995;
+            }
+            .subjectVal{
+                flex: 1;
+                background: url('../../../assets/images/xqzl/xkjs_border.png');
+                background-size: 100% 100%;
+                position: relative;
+                padding-top: 70%;
+                text-align: center;
+                font-size: .28rem;
+                color: #76C1EC;
+                font-weight: bold;
+                span{
+                    font-size: .16rem;
+                    font-weight: normal;
+                }
+            }
+            .subjectVal::after{
+                content: '\20';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('../../../assets/images/xqzl/xkjs_icon.png') no-repeat center 25%;
+                background-size: 60% auto;
+            }
+        }
+        .subjectList{
+            overflow: hidden;
+            padding: .1rem;
+            .subjectBox{
+                width: .9rem;
+                height: .9rem;
+                float: left;
+                margin: .1rem;
+                background: url('../../../assets/images/xqzl/itembg.png');
+                background-size: 100% 100%;
+                text-align: center;
+                color: #FFF;
+                padding-top: .72rem;
+                position: relative;
+                .subjectNum{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    color: #91FCFF;
+                    font-size: .26rem;
+                    font-weight: bold;
+                    white-space: nowrap;
+                    span{
+                        font-size: .14rem;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
     }
     .summary_row_2{
         width: 100%;
@@ -37,6 +233,158 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        .TeacherSummary{
+            display: flex;
+            width: 100%;
+            height: 2.05rem;
+            flex-direction: row;
+            .TLeft{
+                width: 60%;
+                height: 100%;
+                padding: .1rem 0 .1rem .1rem;
+                .summary{
+                    padding: 0 0 .1rem;
+                    .Tflex{
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                    }
+                    .TsumBox{
+                        padding-left: .2rem;
+                        width: 48%;
+                        font-size: .14rem;
+                        color: rgba($color: #FFF, $alpha: .8);
+                        span{
+                            color: #F5D04A;
+                        }
+                    }
+                }
+                .tSummaryBox{
+                    flex: 1;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    .cusBox{
+                        width: 48%;
+                        height: 100%;
+                        background: url('../../../assets/images/xqzl/xkjs_border.png');
+                        background-color: rgba($color: #295492, $alpha: .6);
+                        background-size: 100% 100%;
+                    }
+                }
+            }
+            .TRight{
+                flex: 1;
+                padding: .1rem;
+                .chartBox{
+                    background: rgba($color: #295492, $alpha: .6);
+                }
+            }
+        }
+        .StudentSummary{
+            display: flex;
+            width: 100%;
+            height: 2.05rem;
+            flex-direction: row;
+            color: #FFF;
+            padding: .1rem;
+            .SLeft{
+                width: 60%;
+                height: 100%;
+                padding: .1rem;
+                background: url('../../../assets/images/xqzl/xkjs_border.png');
+                background-color: rgba($color: #295492, $alpha: .6);
+                background-size: 100% 100%;
+                .Stotal{
+                    width:60%;
+                    height: .5rem;
+                    padding-left: .6rem;
+                    margin: 0 auto;
+                    background: url('../../../assets/images/xqzl/xsgkxq_icon.png') no-repeat left center;
+                    background-size: auto 100%;
+                    line-height: 1.8em;
+                    .StotalTit{
+                        font-size: .2rem;
+                        text-align: center;
+                    }
+                    .StotalVal{
+                        font-size: .2rem;
+                        color: #F5D04A;
+                        text-align: center;
+                        font-weight: bold;
+                    }
+                }
+                .StotalChart{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding-top: .1rem;
+                    .StChart{
+                        width: 48%;
+                        height: 1.1rem;
+                    }
+                }
+            }
+            .SRight{
+                flex: 1;
+                padding-left: .1rem;
+                .SinfoBox{
+                    width: 100%;
+                    background-color: rgba($color: #295492, $alpha: .6);
+                    position: relative;
+                    .SinfoTit{
+                        width: 100%;
+                        height: .18rem;
+                        line-height: .18rem;
+                        text-align: center;
+                        background: linear-gradient(to right, #244995,#4F8CBE 70%, #244995);
+                        margin-top: .05rem;
+                        float: left;
+                    }
+                }
+                .graduateNum{
+                    float: left;
+                    background: url('../../../assets/images/xqzl/xsgkxq_icon1.png') no-repeat left center;
+                    background-size: auto 75%;
+                    width: 70%;
+                    height: .4rem;
+                    line-height: .4rem;
+                    margin-left: 15%;
+                    font-size: .24rem;
+                    font-weight: bold;
+                    color: #F5D04A;
+                    padding-left: .5rem;
+                }
+                .otherNum{
+                    width: 100%;
+                    float: left;
+                    line-height: .28rem;
+                    font-size: .16rem;
+                    font-weight: bold;
+                    text-align: center;
+                }
+                .font1{
+                    color: #83E55A;
+                }
+                .font2{
+                    color: #76C1EC;
+                }
+                .font3{
+                    color: #F3FE52;
+                }
+                .font4{
+                    color: #DF649A;
+                }
+                .SinfoCol{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding-top: .1rem;
+                }
+            }
+        }
     }
     .summary_row_3{
         width: 100%;
@@ -45,6 +393,93 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        .scientificBox{
+            padding: .1rem;
+            height: 2.05rem;
+            display: flex;
+            flex-direction: row;
+            .scientificChart{
+                width: 34%;
+                height: 100%;
+                background: url('../../../assets/images/xqzl/xkjs_border.png');
+                background-color: rgba($color: #295492, $alpha: .6);
+                background-size: 100% 100%;
+            }
+            .scientificList{
+                flex: 1;
+                margin-left: .1rem;
+                .infoBox{
+                    width: 100%;
+                    height: .35rem;
+                    background: linear-gradient(to right, #244995,#4F8CBE 70%, #244995);
+                    display: flex;
+                    margin-top: .025rem;
+                    flex-direction: row;
+                    .infoKey{
+                        width: 60%;
+                        color: #FFF;
+                        display: flex;
+                        font-size: .12rem;
+                        padding-left: .1rem;
+                        align-items: center;
+                        line-height: 1.2em;
+                    }
+                    .infoVal{
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #F5D04A;
+                        font-size: .2rem;
+                        font-weight: bold;
+                        span{
+                            font-size: .12rem;
+                            font-weight: normal;
+                        }
+                    }
+                    &:first-child{
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+        .TeachInfoBox{
+            width: 20%;
+            float: left;
+            height: .9rem;
+            margin-top: .1rem;
+            margin-left: .25rem;
+            .TinfoHeader{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                height: .35rem;
+                width: 100%;
+                background: linear-gradient(to right, #244995,#4F8CBE);
+                border-radius: .1rem .1rem 0 0;
+                padding: 0 .1rem;
+                color: #FFF;
+                line-height: 1.2em;
+                font-size: .12rem;
+            }
+            .TinfoContent{
+                height: .55rem;
+                width: 100%;
+                border: .02rem solid #244995;
+                border-radius: 0 0 .05rem .05rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #91FCFF;
+                font-size: .24rem;
+                font-weight: bold;
+                span{
+                    font-size: .12rem;
+                    font-weight: normal;
+                }
+            }
+        }
     }
     .Box_3{
         // flex: 1;
@@ -64,13 +499,141 @@
     padding-top: .15rem;
     .Box_5{
         width: 100%;
-        height: 4.2rem;
+        height: 4.8rem;
         background: rgba($color: #0d2e68, $alpha: .8);
     }
     .Box_6{
         width: 100%;
-        height: 3.6rem;
+        height: 3rem;
         background: rgba($color: #0d2e68, $alpha: .8);
+    }
+    .CampusMain{
+        padding: .1rem;
+    }
+    .Cinfo{
+        background: url('../../../assets/images/xqzl/xkjs_border.png') no-repeat center center;
+        background-size: 100% 100%;
+        background-color: rgba($color: #295492, $alpha: .6);
+        width: 100%;
+        position: relative;
+        .subCinfo{
+            width: 50%;
+            float: left;
+        }
+        .title{
+            width: 100%;
+            height: .18rem;
+            line-height: .18rem;
+            font-size: .12rem;
+            text-align: center;
+            background: linear-gradient(to right, #244995,#4F8CBE 70%, #244995);
+            margin-top: .05rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #9AE4FF;
+            float: left;
+        }
+        .content{
+            width: 100%;
+            text-align: center;
+            color: #EAD56C;
+            line-height: .3rem;
+            font-size: .18rem;
+            font-weight: bold;
+            span{
+                color: #FFF;
+                font-size: .1rem;
+                font-weight: normal;
+            }
+        }
+        .campusInfo{
+            float: left;
+            width: 100%;
+            padding: .05rem;
+            .campusMap{
+                width: .5rem;
+                height: .8rem;
+                margin: .05rem .1rem .05rem 0;
+                float: left;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .campusDetail{
+                overflow: hidden;
+                .detailRow{
+                    width: 100%;
+                    margin-top: .02rem;
+                    overflow: hidden;
+                    .Dtitle{
+                        position: relative;
+                        width: .9rem;
+                        height: .2rem;
+                        line-height: .2rem;
+                        font-size: .14rem;
+                        color: #FFF;
+                        text-align: justify;
+                        float: left;
+                        i{
+                            display: inline-block;
+                            height: 1px;
+                            width: 100%;
+                        }
+                    }
+                    .Dtitle::after{
+                        content: ':';
+                        position: absolute;
+                        top: 0;
+                        right: -.05rem;
+                    }
+                    .Dcontent{
+                        overflow: hidden;
+                        line-height: .2rem;
+                        padding-left: .1rem;
+                        font-size: .16rem;
+                        font-weight: bold;
+                        color: #EAD56C;
+                        span{
+                            font-size: .14rem;
+                            font-weight: normal;
+                            color: #FFF;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .honorMain{
+        padding: .1rem;
+        width: 100%;
+        height: 2.6rem;
+        .honorHeader{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            height: .25rem;
+            .headerCell{
+                flex: 1;
+                background: linear-gradient(to right, #244995,#4F8CBE,#244995);
+                color: #95E9FF;
+                text-align: center;
+                line-height: .25rem;
+            }
+        }
+        .honorRow{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            height: .25rem;
+            .CellTd{
+                flex: 1;
+                line-height: .25rem;
+                color: #FFF;
+                text-align: center;
+            }
+        }
     }
 }
 
