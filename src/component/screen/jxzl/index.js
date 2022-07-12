@@ -332,12 +332,14 @@ class CourseBuilding extends Component{
                     legend: { 
                         bottom: 'center',
                         right: '5%',
+                        left:'60%',
                         itemWidth:10,
                         itemHeight:10,
                         orient:'vertical',
                         textStyle:{
                           color:'#fff'
                         },
+                        
                         data:['国家级一流课程','省级一流课程','校级课程']
                     },
                 }
@@ -468,7 +470,131 @@ class CourseBuilding extends Component{
                     <Block title='教学条件'></Block>
                     <div className='CourseBuilding-content flex flex-1 flex-column'>
                         <div className='echart flex-1 mb10'>
-                            
+                            <div className='echart-item flex'>
+                                <div className='box flex'>
+                                    <div className='title'>省级重点支持现代产业学院</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>21</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div className='box flex'>
+                                    <div className='title'>行业学院</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>12</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div className='box flex'>
+                                    <div className='title'>省部级研究基地</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>3</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='echart-item flex'>
+                                <div className='box flex'>
+                                    <div className='title'>省行业平台</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>2</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div className='box flex'>
+                                    <div className='title'>校级研究机构及平台</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>25</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div className='box flex'>
+                                    <div className='title'>浙江省重点实验室</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>1</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='echart-item flex'>
+                                <div className='box flex'>
+                                    <div className='title'>省级实验教学示范中心</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>4</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div className='box flex'>
+                                    <div className='title'>省级重点示范中心建设项目</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>2</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div className='box flex'>
+                                    <div className='title'>省级虚拟仿真实验教学项目</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>10</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='echart-item flex'>
+                                <div className='box flex'>
+                                    <div className='title'>校外实习实训基地</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>261</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div className='box flex'>
+                                    <div className='title'>国家级大学生校外实践教育基地</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>1</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div className='box flex'>
+                                    <div className='title'>省级大学生校外实践教育基地</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>3</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div className='box flex'>
+                                    <div className='title'>省级产教融合示范基地</div>
+                                    <div className='nums'>
+                                       <div className='nbox'>
+                                        <label className='value'>2</label>
+                                            <label className='dw'>个</label>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className='echart flex-1'>
                             <Echart {...this.barProps()}></Echart>
@@ -803,11 +929,37 @@ class Professional extends Component{
                 <div className='Professional-item teach flex flex-column'>
                     <Block title='教考分离'></Block>
                     <div className='Professional-content flex flex-wrap flex-1'>
-                        <div className='list'>
-                            <div className='list-box'></div>
+                        <div className='list flex flex-column'>
+                            <div className='header'>公共基础平台</div>
+                            <div className='list-box flex-1 flex align-center justify-center'>
+                                <div className='icon '></div>
+                                <div className='textBox'>
+                                    <div className='textBox-item flex align-center'>
+                                        <label className='value'>12121213</label>
+                                        <label className='dw'>门数</label>
+                                    </div>
+                                    <div className='textBox-item flex align-center'>
+                                        <label className='value'>21212212</label>
+                                        <label className='dw'>门次数</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className='list'>
-                            <div className='list-box'></div>
+                        <div className='list flex flex-column'>
+                             <div className='header'>学科基础平台</div>
+                             <div className='list-box flex-1 flex align-center justify-center'>
+                                <div className='icon course'></div>
+                                <div className='textBox'>
+                                    <div className='textBox-item flex align-center'>
+                                        <label className='value'>13123123123</label>
+                                        <label className='dw'>门数</label>
+                                    </div>
+                                    <div className='textBox-item flex align-center'>
+                                        <label className='value'>23313123124</label>
+                                        <label className='dw'>门次数</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -979,6 +1131,15 @@ class Project extends Component{
             }
         }
     }
+    state = {
+        activeIndex:0,
+    }
+    type = ['四级通过率','六级通过率','体测通过率','读研率']
+    changeType = (index)=>{
+        return ()=>{
+            this.setState({activeIndex:index})
+        }
+    }
     render(){
         return(
             <div className='Project flex flex-column'>
@@ -989,12 +1150,24 @@ class Project extends Component{
                             <Echart {...this.barProps()}></Echart>  
                         </div>
                         <div className='list'>
-                        <Echart {...this.itemProps()}></Echart>  
+                            <Echart {...this.itemProps()}></Echart>  
                         </div>
                     </div>
                 </div>
-                <div className='Project-item rate'>
-
+                <div className='Project-item rate flex flex-column'>
+                    <div className='tabBox flex'>
+                            {
+                                this.type.map((item,index)=>{
+                                    return(
+                                        <div className={`tabBox-item flex-1 ${this.state.activeIndex == index ? 'active' : ''}`} key={item} onClick={this.changeType(index)}>{item}</div>
+                                    )
+                                })
+                            }
+                            
+                    </div>
+                    <div className='echart flex-1'>
+                        <Echart></Echart>  
+                    </div>
                 </div>
             </div>
         )
@@ -1003,11 +1176,32 @@ class Project extends Component{
 
 // 学生总数
 class Person extends Component{
+    state = {
+        activeIndex:0,
+    }
+    type = ['学生总数','教师总数']
+    changeType = (index)=>{
+        return ()=>{
+            this.setState({activeIndex:index})
+        }
+    }
     render(){
         return(
             <div className='Person flex flex-column'>
-                <div className='Person-item student'>
-                    3131231
+                <div className='Person-item student flex flex-column'>
+                    <div className='tabBox flex'>
+                            {
+                                this.type.map((item,index)=>{
+                                    return(
+                                        <div className={`tabBox-item flex-1 ${this.state.activeIndex == index ? 'active' : ''}`} key={item} onClick={this.changeType(index)}>{item}</div>
+                                    )
+                                })
+                            }
+                            
+                    </div>
+                    <div className='echart flex-1'>
+                        <Echart></Echart>  
+                    </div>
                 </div>
                 <div className='Person-item resources'>
                     <div className='numBox flex flex-wrap'>
@@ -1083,7 +1277,7 @@ class JxzlBox extends Component {
             <div className='content-item'>
                 <ClassAttend />
             </div>
-            <div className='content-item'>
+            <div className='content-item per'>
                 <CourseBuilding />
             </div>
             <div className='content-item per'>
