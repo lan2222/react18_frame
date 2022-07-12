@@ -20,8 +20,9 @@ function ChartLine({id, title, series, option }) {
                 trigger: 'axis'
             },
             legend: {
+                show: false,
                 top: 30,
-                data: ['payout', 'top-up']
+                data: []
             },
             grid: {
                 top:'5%',
@@ -41,7 +42,7 @@ function ChartLine({id, title, series, option }) {
             series: series,
             ...option,
         }
-        
+
         if(!echartObj){
             lineChart.setOption({
                 ...defaultOption
