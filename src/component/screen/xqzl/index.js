@@ -13,6 +13,8 @@ import Icon4 from '@/assets/images/xqzl/icon4.png';
 import Icon5 from '@/assets/images/xqzl/icon5.png';
 import Icon6 from '@/assets/images/xqzl/icon6.png';
 import Icon7 from '@/assets/images/xqzl/icon7.png';
+import campus_yxq from '@/assets/images/xqzl/campus_yxq.png';
+import campus_gcq from '@/assets/images/xqzl/campus_gcq.png';
 
 function TeachInfoBox({title, children}){
     return (
@@ -30,6 +32,17 @@ function StudentInfoBox({title, css, children}){
         <div className={selfCss.SinfoBox} style={{...css}}>
             <div className={selfCss.SinfoTit}>{title}</div>
             <div>{children}</div>
+        </div>
+    )
+}
+
+function CampusInfoBox({css, children}){
+    return (
+        <div className={selfCss.Cinfo} style={{...css}}>
+            {children}
+            {/* <div className={selfCss.title}>
+                {title}
+            </div> */}
         </div>
     )
 }
@@ -449,16 +462,55 @@ export default function Index() {
 
     return (
         <div className={[css.screen, css.xqzl].join(' ')}>
-            {/* <Header>浙江树人学院校情总览</Header> */}
-            <Header></Header>
+            <Header>浙江树人学院校情总览</Header>
+            {/* <Header></Header> */}
             <div className={selfCss.sreenMain}>
                 <div className={selfCss.summary_column_1}>
                     <div className={selfCss.Box_1}>
+                        <div className={selfCss.schoolLogo}></div>
+                        <div className={selfCss.schoolInfo}>
+                            <div className={selfCss.infoRow}>
+                                <div className={selfCss.title}>校名<i></i></div>
+                                <div className={selfCss.content}>浙江树人学院</div>
+                            </div>
+                            <div className={selfCss.infoRow}>
+                                <div className={selfCss.title}>英文名<i></i></div>
+                                <div className={selfCss.content}>Zhejiang Shuren University</div>
+                            </div>
+                            <div className={selfCss.infoRow}>
+                                <div className={selfCss.title}>校训<i></i></div>
+                                <div className={selfCss.content}>崇德重智、树人为本</div>
+                            </div>
+                            <div className={selfCss.infoRow}>
+                                <div className={selfCss.title}>建校时间<i></i></div>
+                                <div className={selfCss.content}>1984年</div>
+                            </div>
+                            <div className={selfCss.infoRow}>
+                                <div className={selfCss.title}>办学历史<i></i></div>
+                                <div className={selfCss.content}>xxx</div>
+                            </div>
+                        </div>
+                        <div className={selfCss.presidentList}>
+                            <div className={selfCss.presidentBox}>
+                                <div className={selfCss.photo}>
 
+                                </div>
+                                <div className={selfCss.name}>
+                                    党委书记：<span>xxx</span>
+                                </div>
+                            </div>
+                            <div className={selfCss.presidentBox}>
+                                <div className={selfCss.photo}>
+                                    
+                                </div>
+                                <div className={selfCss.name}>
+                                    校长：<span>xxx</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className={[selfCss.Box_2, css.mt20].join(' ')}>
-                        {/* <Block title='发展大事记'></Block> */}
-                        <Block title='123'></Block>
+                        <Block title='发展大事记'></Block>
                     </div>
                 </div>
                 <div className={selfCss.summary_column_2}>
@@ -660,7 +712,6 @@ export default function Index() {
                             </Block>
                         </div>  
                     </div>
-
                     <div className={selfCss.summary_row_3}>
                         <div className={selfCss.Box_4}>
                             <Block title='国家级科研情况'>
@@ -730,10 +781,161 @@ export default function Index() {
                 </div>
                 <div className={selfCss.summary_column_3}>
                     <div className={selfCss.Box_5}>
-                            2
+                        <Block title='校舍情况'>
+                            <div className={selfCss.CampusMain}>
+                                <CampusInfoBox css={{height:'1.23rem'}}>
+                                    <div className={selfCss.title}>杨汛桥校区</div>
+                                    <div className={selfCss.campusInfo}>
+                                        <div className={selfCss.campusMap}>
+                                            <img src={campus_yxq} alt='' />
+                                        </div>
+                                        <div className={selfCss.campusDetail}>
+                                            <div className={selfCss.detailRow}>
+                                                <div className={selfCss.Dtitle}>
+                                                    占地面积<i></i>
+                                                </div>
+                                                <div className={selfCss.Dcontent}>
+                                                    12345<span>(亩)</span>
+                                                </div>
+                                            </div>
+                                            <div className={selfCss.detailRow}>
+                                                <div className={selfCss.Dtitle}>
+                                                    生均占地面积<i></i>
+                                                </div>
+                                                <div className={selfCss.Dcontent}>
+                                                    2344<span>(亩)</span>
+                                                </div>
+                                            </div>
+                                            <div className={selfCss.detailRow}>
+                                                <div className={selfCss.Dtitle}>
+                                                    校舍面积<i></i>
+                                                </div>
+                                                <div className={selfCss.Dcontent}>
+                                                    12345<span>(亩)</span>
+                                                </div>
+                                            </div>
+                                            <div className={selfCss.detailRow}>
+                                                <div className={selfCss.Dtitle}>
+                                                    生均校舍面积<i></i>
+                                                </div>
+                                                <div className={selfCss.Dcontent}>
+                                                    2345<span>(亩)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </CampusInfoBox>
+
+                                <CampusInfoBox css={{height:'1.23rem',marginTop:'.05rem'}}>
+                                    <div className={selfCss.title}>拱宸桥校区</div>
+                                    <div className={selfCss.campusInfo}>
+                                        <div className={selfCss.campusMap}>
+                                            <img src={campus_gcq} alt='' />
+                                        </div>
+                                        <div className={selfCss.campusDetail}>
+                                            <div className={selfCss.detailRow}>
+                                                <div className={selfCss.Dtitle}>
+                                                    占地面积<i></i>
+                                                </div>
+                                                <div className={selfCss.Dcontent}>
+                                                    12345<span>(亩)</span>
+                                                </div>
+                                            </div>
+                                            <div className={selfCss.detailRow}>
+                                                <div className={selfCss.Dtitle}>
+                                                    生均占地面积<i></i>
+                                                </div>
+                                                <div className={selfCss.Dcontent}>
+                                                    2345<span>(亩)</span>
+                                                </div>
+                                            </div>
+                                            <div className={selfCss.detailRow}>
+                                                <div className={selfCss.Dtitle}>
+                                                    校舍面积<i></i>
+                                                </div>
+                                                <div className={selfCss.Dcontent}>
+                                                    12345<span>(亩)</span>
+                                                </div>
+                                            </div>
+                                            <div className={selfCss.detailRow}>
+                                                <div className={selfCss.Dtitle}>
+                                                    生均校舍面积<i></i>
+                                                </div>
+                                                <div className={selfCss.Dcontent}>
+                                                    2345<span>(亩)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </CampusInfoBox>
+
+                                <CampusInfoBox css={{height:'.53rem',marginTop:'.05rem'}}>
+                                    <div className={selfCss.subCinfo}>
+                                        <div className={selfCss.title}>教学科研及辅助用房</div>
+                                        <div className={selfCss.content}>12345<span>(平方米)</span></div>
+                                    </div>
+                                    <div className={selfCss.subCinfo}>
+                                        <div className={selfCss.title}>生均教学科研及辅助用房</div>
+                                        <div className={selfCss.content}>12345<span>(平方米)</span></div>
+                                    </div>
+                                </CampusInfoBox>
+
+                                <CampusInfoBox css={{height:'.53rem',marginTop:'.05rem'}}>
+                                    <div className={selfCss.subCinfo}>
+                                        <div className={selfCss.title}>宿舍面积</div>
+                                        <div className={selfCss.content}>12345<span>(平方米)</span></div>
+                                    </div>
+                                    <div className={selfCss.subCinfo}>
+                                        <div className={selfCss.title}>生均宿舍面积</div>
+                                        <div className={selfCss.content}>12345<span>(平方米)</span></div>
+                                    </div>
+                                </CampusInfoBox>
+
+                                <CampusInfoBox css={{height:'.53rem',marginTop:'.05rem'}}>
+                                    <div className={selfCss.subCinfo}>
+                                        <div className={selfCss.title}>行政及辅助用房</div>
+                                        <div className={selfCss.content}>12345<span>(平方米)</span></div>
+                                    </div>
+                                    <div className={selfCss.subCinfo}>
+                                        <div className={selfCss.title}>生均行政及辅助用房</div>
+                                        <div className={selfCss.content}>12345<span>(平方米)</span></div>
+                                    </div>
+                                </CampusInfoBox>
+                            </div>
+                        </Block>
                     </div>
                     <div className={[selfCss.Box_6, css.mt20].join(' ')}>
-                            2
+                        <Block title='学校获得大奖' size='mini'>
+                            <div className={selfCss.honorMain}>
+                                <div className={selfCss.honorHeader}>
+                                    <div className={selfCss.headerCell}>获奖人</div>
+                                    <div className={selfCss.headerCell}>获奖名称</div>
+                                    <div className={selfCss.headerCell}>获奖时间</div>
+                                </div>
+                                <div className={selfCss.honorBody}>
+                                    <div className={selfCss.honorRow}>
+                                        <div className={selfCss.CellTd}>管理员</div>
+                                        <div className={selfCss.CellTd}>科技创新</div>
+                                        <div className={selfCss.CellTd}>22-07-09</div>
+                                    </div>
+                                    <div className={selfCss.honorRow}>
+                                        <div className={selfCss.CellTd}>管理员</div>
+                                        <div className={selfCss.CellTd}>科技创新</div>
+                                        <div className={selfCss.CellTd}>22-07-09</div>
+                                    </div>
+                                    <div className={selfCss.honorRow}>
+                                        <div className={selfCss.CellTd}>管理员</div>
+                                        <div className={selfCss.CellTd}>科技创新</div>
+                                        <div className={selfCss.CellTd}>22-07-09</div>
+                                    </div>
+                                    <div className={selfCss.honorRow}>
+                                        <div className={selfCss.CellTd}>管理员</div>
+                                        <div className={selfCss.CellTd}>科技创新</div>
+                                        <div className={selfCss.CellTd}>22-07-09</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Block>
                     </div>
                 </div>
             </div>

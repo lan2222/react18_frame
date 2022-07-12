@@ -12,6 +12,75 @@
         width: 100%;
         height: 3.9rem;
         background: rgba($color: #0d2e68, $alpha: .8);
+        .schoolLogo{
+            width: 100%;
+            height: .5rem;
+            background: url('../../../assets/images/xqzl/logo.png') #25225A no-repeat center center;
+            background-size: auto 80%;
+        }
+        .schoolInfo{
+            margin: .2rem;
+            .infoRow{
+                width: 100%;
+                overflow: hidden;
+                .title{
+                    position: relative;
+                    width: .8rem;
+                    height: .3rem;
+                    line-height: .3rem;
+                    font-weight: bold;
+                    font-size: .16rem;
+                    color: #76C1EC;
+                    text-align: justify;
+                    float: left;
+                    i{
+                        display: inline-block;
+                        height: 1px;
+                        width: 100%;
+                    }
+                }
+                .title::after{
+                    content: ':';
+                    position: absolute;
+                    top: 0;
+                    right: -.15rem;
+                }
+                .content{
+                    overflow: hidden;
+                    line-height: .3rem;
+                    padding-left: .25rem;
+                    font-size: .16rem;
+                    color: #FFF;
+                }
+            }
+        }
+        .presidentList{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .presidentBox{
+                flex: 1;
+                .photo{
+                    margin: 0 auto;
+                    width: .9rem;
+                    height: 1.1rem;
+                    background: #999;
+                }
+                .name{
+                    padding-top: .05rem;
+                    margin: 0 auto;
+                    text-align: center;
+                    font-size: .16rem;
+                    color: #76C1EC;
+                    font-weight: bold;
+                    span{
+                        color: #FFF;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
     }
     .Box_2{
         width: 100%;
@@ -430,13 +499,141 @@
     padding-top: .15rem;
     .Box_5{
         width: 100%;
-        height: 4.2rem;
+        height: 4.8rem;
         background: rgba($color: #0d2e68, $alpha: .8);
     }
     .Box_6{
         width: 100%;
-        height: 3.6rem;
+        height: 3rem;
         background: rgba($color: #0d2e68, $alpha: .8);
+    }
+    .CampusMain{
+        padding: .1rem;
+    }
+    .Cinfo{
+        background: url('../../../assets/images/xqzl/xkjs_border.png') no-repeat center center;
+        background-size: 100% 100%;
+        background-color: rgba($color: #295492, $alpha: .6);
+        width: 100%;
+        position: relative;
+        .subCinfo{
+            width: 50%;
+            float: left;
+        }
+        .title{
+            width: 100%;
+            height: .18rem;
+            line-height: .18rem;
+            font-size: .12rem;
+            text-align: center;
+            background: linear-gradient(to right, #244995,#4F8CBE 70%, #244995);
+            margin-top: .05rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #9AE4FF;
+            float: left;
+        }
+        .content{
+            width: 100%;
+            text-align: center;
+            color: #EAD56C;
+            line-height: .3rem;
+            font-size: .18rem;
+            font-weight: bold;
+            span{
+                color: #FFF;
+                font-size: .1rem;
+                font-weight: normal;
+            }
+        }
+        .campusInfo{
+            float: left;
+            width: 100%;
+            padding: .05rem;
+            .campusMap{
+                width: .5rem;
+                height: .8rem;
+                margin: .05rem .1rem .05rem 0;
+                float: left;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .campusDetail{
+                overflow: hidden;
+                .detailRow{
+                    width: 100%;
+                    margin-top: .02rem;
+                    overflow: hidden;
+                    .Dtitle{
+                        position: relative;
+                        width: .9rem;
+                        height: .2rem;
+                        line-height: .2rem;
+                        font-size: .14rem;
+                        color: #FFF;
+                        text-align: justify;
+                        float: left;
+                        i{
+                            display: inline-block;
+                            height: 1px;
+                            width: 100%;
+                        }
+                    }
+                    .Dtitle::after{
+                        content: ':';
+                        position: absolute;
+                        top: 0;
+                        right: -.05rem;
+                    }
+                    .Dcontent{
+                        overflow: hidden;
+                        line-height: .2rem;
+                        padding-left: .1rem;
+                        font-size: .16rem;
+                        font-weight: bold;
+                        color: #EAD56C;
+                        span{
+                            font-size: .14rem;
+                            font-weight: normal;
+                            color: #FFF;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .honorMain{
+        padding: .1rem;
+        width: 100%;
+        height: 2.6rem;
+        .honorHeader{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            height: .25rem;
+            .headerCell{
+                flex: 1;
+                background: linear-gradient(to right, #244995,#4F8CBE,#244995);
+                color: #95E9FF;
+                text-align: center;
+                line-height: .25rem;
+            }
+        }
+        .honorRow{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            height: .25rem;
+            .CellTd{
+                flex: 1;
+                line-height: .25rem;
+                color: #FFF;
+                text-align: center;
+            }
+        }
     }
 }
 

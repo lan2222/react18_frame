@@ -40,7 +40,7 @@
 .Header{
     width: 100%;
     height: .95rem;
-    background: url('../../assets//images/xqzl/head.png') no-repeat;
+    background: url('../../assets//images/xqzl/head.png') #18142E no-repeat;
     background-size: 100% 100%;
     line-height: .85rem;
     font-size: .45rem;
@@ -59,6 +59,108 @@
     width: 100%;
     height: 1.5rem;
     background-image: linear-gradient(#0055af, #002b54);
+    padding: 0 2rem;
+    position: relative;
+    .FooterLogo{
+        position: absolute;
+        width: 2rem;
+        height: 100%;
+        background: url('../../assets/images/xqzl/logo_white.png') no-repeat center center;
+        background-size: auto 65%;
+        top: 0;
+        left: 0;
+    }
+    .FooterQR{
+        position: absolute;
+        width: 2rem;
+        height: 100%;
+        background: url('../../assets/images/xqzl/qrcode.png') no-repeat center center;
+        background-size: auto 65%;
+        top: 0;
+        right: 0;
+    }
+    .FooterNavList{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .NavBox{
+            flex: 1;
+            background: #F00;
+            padding-top: .85rem;
+            line-height: 2em;
+        }
+        .NavName{
+            width: 100%;
+            text-align: center;
+            font-size: .2rem;
+            color: #FFF;
+        }
+        .NavContent{
+            width: 100%;
+            text-align: center;
+            font-size: .24rem;
+            font-weight: bold;
+            color: #FFF;
+        }
+        .nav_1{
+            background: url('../../assets/images/xqzl/jzgs.png') no-repeat center 20%;
+            background-size: auto 40%;
+            .NavContent{
+                color: #54B9F2;
+            }
+        }
+        .nav_2{
+            background: url('../../assets/images/xqzl/xss.png') no-repeat center 20%;
+            background-size: auto 40%;
+            .NavContent{
+                color: #87C481;
+            }
+        }
+        .nav_3{
+            background: url('../../assets/images/xqzl/bkzy.png') no-repeat center 20%;
+            background-size: auto 40%;
+            .NavContent{
+                color: #EEFA52;
+            }
+        }
+        .nav_4{
+            background: url('../../assets/images/xqzl/ejxy.png') no-repeat center 20%;
+            background-size: auto 40%;
+            .NavContent{
+                color: #DF649B;
+            }
+        }
+        .nav_5{
+            background: url('../../assets/images/xqzl/hyxy.png') no-repeat center 20%;
+            background-size: auto 40%;
+            .NavContent{
+                color: #F5D347;
+            }
+        }
+        .nav_6{
+            background: url('../../assets/images/xqzl/jxyqzz.png') no-repeat center 20%;
+            background-size: auto 40%;
+            .NavContent{
+                color: #D33750;
+            }
+        }
+        .nav_7{
+            background: url('../../assets/images/xqzl/tsgcs.png') no-repeat center 20%;
+            background-size: auto 40%;
+            .NavContent{
+                color: #E18C6A;
+            }
+        }
+        .nav_8{
+            background: url('../../assets/images/xqzl/zjzmj.png') no-repeat center 20%;
+            background-size: auto 40%;
+            .NavContent{
+                color: #3768E1;
+            }
+        }
+    }
 }
 
 .mt20{
@@ -73,6 +175,7 @@
     width: 100%;
     height: .35rem;
     padding: .07rem;
+    white-space: nowrap;
     .dot{ 
         height: 100%;
         line-height: .2rem;
@@ -89,12 +192,12 @@
         float: left;
         overflow: hidden;
         margin-left: .2rem;
-        background-size: 100% 100%;
+        background-size: auto 100%;
     }
 }
 
 .xqzl {
-    background: url('../../assets/images/xqzl/bg.png');
+    background: url('../../assets/images/xqzl/bg.png') #18142E ;
     background-size: 100% 100%;
 }
 
