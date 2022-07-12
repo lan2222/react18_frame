@@ -215,7 +215,7 @@ class ClassAttend extends Component {
         return(
             <div className='classAttend flex flex-column'>
                 <div className='classAttend-item currDay flex-1 flex flex-column'>
-                    <Block title='发展大事记'></Block>
+                    <Block className="head" title='发展大事记'></Block>
                     <div className='tabBox flex'>
                         {
                             this.schoolArea.map((item,index)=>{
@@ -456,7 +456,7 @@ class CourseBuilding extends Component{
         return(
             <div className='CourseBuilding flex flex-column'>
                 <div className='CourseBuilding-item build  flex flex-column'>
-                    <Block title='课程建设概况'></Block>
+                    <Block className="head" title='课程建设概况'></Block>
                     <div className='CourseBuilding-content flex flex-1 flex-column'>
                         <div className='echart flex-1 mb10'>
                             <Echart {...this.pieProps()}></Echart>
@@ -467,7 +467,7 @@ class CourseBuilding extends Component{
                     </div>
                 </div>
                 <div className='CourseBuilding-item condition  flex flex-column'>
-                    <Block title='教学条件'></Block>
+                    <Block className='head'  title='教学条件'></Block>
                     <div className='CourseBuilding-content flex flex-1 flex-column'>
                         <div className='echart flex-1 mb10'>
                             <div className='echart-item flex'>
@@ -898,11 +898,70 @@ class Professional extends Component{
     render(){
         return(
             <div className='Professional flex flex-column'>
-                <div className='Professional-item major'>
-                    <Block title='专业概况'></Block>
+                <div className='Professional-item major flex flex-column'>
+                    <Block className='head'  title='专业概况'></Block>
+                    <div className='Professional-content flex-1'>
+                        <div className='circle-box flex'>
+                            <div className='circle circle1'>
+                                <label className='title'>本科专业</label>
+                                <label className='value'>
+                                    <span className='val'>50</span>
+                                    <span className='dw'>个</span>
+                                </label>
+                            </div>
+                            <div className='circle circle2'>
+                                <label className='title'>专科专业</label>
+                                <label className='value'>
+                                    <span className='val'>8</span>
+                                    <span className='dw'>个</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div className='circle-box flex'>
+                            <div className='circle circle3'>
+                                <label className='title'>国家一流专业</label>
+                                <label className='value'>
+                                    <span className='val'>50</span>
+                                    <span className='dw'>个</span>
+                                </label>
+                            </div>
+                            <div className='circle circle4'>
+                                <label className='title'>国家特色与优势专业</label>
+                                <label className='value'>
+                                    <span className='val'>50</span>
+                                    <span className='dw'>个</span>
+                                </label>
+                            </div>
+                            <div className='circle circle5'>
+                                <label className='title'>省重点专业</label>
+                                <label className='value'>
+                                    <span className='val'>50</span>
+                                    <span className='dw'>个</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div className='circle-box flex'>
+                            <div className='circle circle6'>
+                                <label className='title'>省一流专业</label>
+                                <label className='value'>
+                                    <span className='val'>50</span>
+                                    <span className='dw'>个</span>
+                                </label>
+                            </div>
+                            <div className='circle circle7'>
+                                <label className='title'>省特色与优势专业</label>
+                                <label className='value'>
+                                    <span className='val'>50</span>
+                                    <span className='dw'>个</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
                 </div>
                 <div className='Professional-item study flex flex-column'>
-                    <Block title='学习效果概况'></Block>
+                    <Block className='head'  title='学习效果概况'></Block>
                     <div className='Professional-content flex flex-wrap flex-1'>
                         <div className='list'>
                             <div className='list-box'>
@@ -927,7 +986,7 @@ class Professional extends Component{
                     </div>
                 </div>
                 <div className='Professional-item teach flex flex-column'>
-                    <Block title='教考分离'></Block>
+                    <Block className="head" title='教考分离'></Block>
                     <div className='Professional-content flex flex-wrap flex-1'>
                         <div className='list flex flex-column'>
                             <div className='header'>公共基础平台</div>
@@ -1144,7 +1203,7 @@ class Project extends Component{
         return(
             <div className='Project flex flex-column'>
                 <div className='Project-item proj flex flex-column'>
-                    <Block title='教学项目概况'></Block>
+                    <Block className='head' title='教学项目概况'></Block>
                     <div className='Project-content flex-1 flex flex-column'>
                         <div className='list mb10'>
                             <Echart {...this.barProps()}></Echart>  
