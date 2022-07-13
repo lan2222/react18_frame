@@ -66,6 +66,10 @@
                     width: .9rem;
                     height: 1.1rem;
                     background: #999;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
                 .name{
                     padding-top: .05rem;
@@ -726,6 +730,7 @@
         }
         .honorList{
             position: absolute;
+            transition: 2s all;
             width: 100%;
             top: 0;
             left: 0;

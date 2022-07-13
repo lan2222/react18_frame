@@ -15,6 +15,8 @@ import Icon6 from '@/assets/images/xqzl/icon6.png';
 import Icon7 from '@/assets/images/xqzl/icon7.png';
 import campus_yxq from '@/assets/images/xqzl/campus_yxq.png';
 import campus_gcq from '@/assets/images/xqzl/campus_gcq.png';
+import admin_xz from '@/assets/images/xqzl/admin_xz.png';
+import admin_sj from '@/assets/images/xqzl/admin_sj.png';
 
 function TeachInfoBox({title, children}){
     return (
@@ -516,18 +518,18 @@ export default function Index() {
                         <div className={selfCss.presidentList}>
                             <div className={selfCss.presidentBox}>
                                 <div className={selfCss.photo}>
-
+                                    <img src={admin_xz}  alt='校长'/>
                                 </div>
                                 <div className={selfCss.name}>
-                                    党委书记：<span>xxx</span>
+                                    校长：<span>李鲁</span>
                                 </div>
                             </div>
                             <div className={selfCss.presidentBox}>
                                 <div className={selfCss.photo}>
-                                    
+                                    <img src={admin_sj}  alt='书记'/>
                                 </div>
                                 <div className={selfCss.name}>
-                                    校长：<span>xxx</span>
+                                    党委书记：<span>章清</span>
                                 </div>
                             </div>
                         </div>
