@@ -4,6 +4,7 @@ import Header from '../common/header';
 import Footer from '../common/footer';
 import Block from '../common/frame/block';
 import Echart from '@/common/echarts'
+import { Progress } from 'antd';
 
 export default function Jxzl() {
     // 这里可以做一个自定的 hooks 
@@ -1199,6 +1200,40 @@ class Project extends Component{
             this.setState({activeIndex:index})
         }
     }
+    colleges = [
+        {
+            mc:'管理学院',
+            value:98
+        },
+        {
+            mc:'城建学院',
+            value:97
+        },
+        {
+            mc:'人文与外国语学院',
+            value:96
+        },
+        {
+            mc:'信息科技学院',
+            value:95
+        },
+        {
+            mc:'生物与环境工程学院',
+            value:94
+        },
+        {
+            mc:'现代服务业学院',
+            value:93
+        },
+        {
+            mc:'艺术学院',
+            value:92
+        },
+        {
+            mc:'树兰国际医学院',
+            value:91
+        },
+    ]
     render(){
         return(
             <div className='Project flex flex-column'>
@@ -1225,7 +1260,22 @@ class Project extends Component{
                             
                     </div>
                     <div className='echart flex-1'>
-                        <Echart></Echart>  
+                        {
+                            this.colleges.map((item,index)=>{
+                                return(
+                                    <div className='echart-item'>
+                                        <div className='head'>
+                                            <label className='title'>NO{index + 1}.</label>
+                                            <label className='mc'>{item.mc}</label>
+                                        </div>
+                                        <div className='con'>
+                                            <Progress strokeColor={{'0%': '#00a1e9','100%': '#005ade'}} percent={item.value} format={percent => `${percent}%`}/>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                        
                     </div>
                 </div>
             </div>
@@ -1256,10 +1306,32 @@ class Person extends Component{
                                     )
                                 })
                             }
-                            
                     </div>
                     <div className='echart flex-1'>
-                        <Echart></Echart>  
+                        <div className='head'>
+                            <div className='list'>
+                                <div className='head-item'>
+                                    <span className='icon'></span>
+                                    <span className='title'>研究生</span>
+                                </div>
+                            </div>
+                            <div className='ms'>总人数</div>
+                        </div>
+                        <div className='con'>
+                            <div className='echart-item'>
+                                <div className='text'>
+                                    <label className='title'>NO1.</label>
+                                    <label className='title'>管理学院</label>
+                                    <label className='ms'>总人数</label>
+                                </div>
+                                <div className='process flex'>
+                                    <div className='process-item'>55%</div>
+                                    <div className='process-item'>55%</div>
+                                    <div className='process-item'>55%</div>
+                                    <div className='process-item'>55%</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='Person-item resources'>

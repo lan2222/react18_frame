@@ -27,6 +27,9 @@ function ChartPie({id, title, series, option }) {
         series: series,
         ...option
       }
+      // console.log({
+      //   ...defaultOption, ...option
+      // })
       if(!echartObj){
         pieChart.setOption({ ...defaultOption,  })
         

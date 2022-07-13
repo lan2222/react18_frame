@@ -158,6 +158,10 @@
                     color: #fff;
                     background: #26225e;
                     text-align: center;
+                    white-space: nowrap; 
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
                     &.active{
                         background: #00a2e9;
                     }
@@ -402,6 +406,22 @@
                             }
                         }
                     }
+                    .echart{
+                        padding: 0 .1rem;
+                        .echart-item{
+                            font-size: .14rem;
+                            color: #fff;
+                            .head{
+                                .title{
+                                    margin-right: .1rem;
+                                }
+
+                            }
+                            .ant-progress-text{
+                                color: #fff!important;
+                            }
+                        }
+                    }
                 }
             }
             .Person{
@@ -412,7 +432,10 @@
                         height: 70%;
                         background: #0f3677;
                         margin-bottom: .1rem;
-                        
+                        .echart{
+                            padding: 0 .1rem;
+                            
+                        }
                     }
                     &.resources{
                         height: 30%;

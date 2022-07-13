@@ -46,6 +46,7 @@ const Bar = memo(({id, title, series, option }) => {
             series: series,
             ...option
         }
+        // console.log(defaultOption, 'Bar Echart')
         if(!echartObj){
             barChart.setOption({
                 ...defaultOption,
