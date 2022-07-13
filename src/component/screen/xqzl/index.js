@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useEffect } from 'react';
+import React, { useLayoutEffect, useEffect, useRef } from 'react';
 import css from '../screen.module.scss';
 import selfCss from './index.module.scss';
 import Header from '../common/header';
@@ -48,6 +48,14 @@ function CampusInfoBox({css, children}){
 }
 
 export default function Index() {
+
+    const Timer = useRef(null);
+    const scrollList = useRef(null);
+    const scrollBox = useRef(null)
+    const targetTop = useRef(0);
+    const posTop = useRef(0)
+
+    const lists = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
     // 这里可以做一个自定的 hooks 
     const computeREM = (screenRatioByDesign = 16/9) => {
         let docEle = document.documentElement;
@@ -452,9 +460,24 @@ export default function Index() {
         computeREM()
     }, [])
 
+    const autoScroll = () => {
+        if(posTop.current>0){
+            Timer.current = setInterval(()=>{
+                if( Math.abs(targetTop.current) > posTop.current){
+                    targetTop.current = 0;
+                }
+                targetTop.current-=25;
+                scrollList.current.style.transform = 'translateY(' + targetTop.current + 'px)'
+            },2000)
+        }
+    }
+
     useEffect(() => {  
         computeREM();
+        posTop.current = scrollList.current.clientHeight - scrollBox.current.clientHeight
+        autoScroll();
         return () => {
+            clearInterval(Timer.current);
             let docEle = document.documentElement;
             docEle.removeAttribute('style');
         }
@@ -510,7 +533,50 @@ export default function Index() {
                         </div>
                     </div>
                     <div className={[selfCss.Box_2, css.mt20].join(' ')}>
-                        <Block title='发展大事记'></Block>
+                        <Block title='发展大事记'>
+                            <div className={selfCss.Growup}>
+                                <div className={selfCss.thingRow}>
+                                    <div className={selfCss.content}>创建民办的武林大学</div>
+                                    <div className={selfCss.date}>1965</div>
+                                </div>
+                                <div className={selfCss.thingRow}>
+                                    <div className={selfCss.content}>创建民办的武林大学</div>
+                                    <div className={selfCss.date}>1975</div>
+                                </div>
+                                <div className={selfCss.thingRow}>
+                                    <div className={selfCss.content}>创建民办的武林大学</div>
+                                    <div className={selfCss.date}>1990</div>
+                                </div>
+                                <div className={selfCss.thingRow}>
+                                    <div className={selfCss.content}>创建民办的武林大学</div>
+                                    <div className={selfCss.date}>2021</div>
+                                </div>
+                                <div className={selfCss.thingRow}>
+                                    <div className={selfCss.content}>创建民办的武林大学</div>
+                                    <div className={selfCss.date}>2021</div>
+                                </div>
+                                <div className={selfCss.thingRow}>
+                                    <div className={selfCss.content}>创建民办的武林大学</div>
+                                    <div className={selfCss.date}>2021</div>
+                                </div>
+                                <div className={selfCss.thingRow}>
+                                    <div className={selfCss.content}>创建民办的武林大学</div>
+                                    <div className={selfCss.date}>2021</div>
+                                </div>
+                                <div className={selfCss.thingRow}>
+                                    <div className={selfCss.content}>创建民办的武林大学</div>
+                                    <div className={selfCss.date}>2021</div>
+                                </div>
+                                <div className={selfCss.thingRow}>
+                                    <div className={selfCss.content}>创建民办的武林大学</div>
+                                    <div className={selfCss.date}>2021</div>
+                                </div>
+                                <div className={selfCss.thingRow}>
+                                    <div className={selfCss.content}>创建民办的武林大学</div>
+                                    <div className={selfCss.date}>2021</div>
+                                </div>
+                            </div>
+                        </Block>
                     </div>
                 </div>
                 <div className={selfCss.summary_column_2}>
@@ -912,26 +978,17 @@ export default function Index() {
                                     <div className={selfCss.headerCell}>获奖名称</div>
                                     <div className={selfCss.headerCell}>获奖时间</div>
                                 </div>
-                                <div className={selfCss.honorBody}>
-                                    <div className={selfCss.honorRow}>
-                                        <div className={selfCss.CellTd}>管理员</div>
-                                        <div className={selfCss.CellTd}>科技创新</div>
-                                        <div className={selfCss.CellTd}>22-07-09</div>
-                                    </div>
-                                    <div className={selfCss.honorRow}>
-                                        <div className={selfCss.CellTd}>管理员</div>
-                                        <div className={selfCss.CellTd}>科技创新</div>
-                                        <div className={selfCss.CellTd}>22-07-09</div>
-                                    </div>
-                                    <div className={selfCss.honorRow}>
-                                        <div className={selfCss.CellTd}>管理员</div>
-                                        <div className={selfCss.CellTd}>科技创新</div>
-                                        <div className={selfCss.CellTd}>22-07-09</div>
-                                    </div>
-                                    <div className={selfCss.honorRow}>
-                                        <div className={selfCss.CellTd}>管理员</div>
-                                        <div className={selfCss.CellTd}>科技创新</div>
-                                        <div className={selfCss.CellTd}>22-07-09</div>
+                                <div ref={scrollBox} className={selfCss.honorBody}>
+                                    <div ref={scrollList} className={selfCss.honorList}>
+                                        {lists.map(item=>{
+                                            return (
+                                                <div className={selfCss.honorRow}>
+                                                    <div className={selfCss.CellTd}>管理员</div>
+                                                    <div className={selfCss.CellTd}>科技创新</div>
+                                                    <div className={selfCss.CellTd}>22-07-09</div>
+                                                </div>
+                                            )
+                                        })}
                                     </div>
                                 </div>
                             </div>
@@ -939,7 +996,42 @@ export default function Index() {
                     </div>
                 </div>
             </div>
-            <Footer></Footer>
+            <Footer>
+                <div className={css.FooterNavList}>
+                    <div className={[css.NavBox, css.nav_1].join(' ')}>
+                        <div className={css.NavName}>教职工数</div>
+                        <div className={css.NavContent}>1234</div>
+                    </div>
+                    <div className={[css.NavBox, css.nav_2].join(' ')}>
+                        <div className={css.NavName}>学生数</div>
+                        <div className={css.NavContent}>1234</div>      
+                    </div>
+                    <div className={[css.NavBox, css.nav_3].join(' ')}>
+                        <div className={css.NavName}>本科专业</div>
+                        <div className={css.NavContent}>1234</div>    
+                    </div>
+                    <div className={[css.NavBox, css.nav_4].join(' ')}>
+                        <div className={css.NavName}>二级学院</div>
+                        <div className={css.NavContent}>1234</div>   
+                    </div>
+                    <div className={[css.NavBox, css.nav_5].join(' ')}>
+                        <div className={css.NavName}>行业学院</div>
+                        <div className={css.NavContent}>1234</div>       
+                    </div>
+                    <div className={[css.NavBox, css.nav_6].join(' ')}>
+                        <div className={css.NavName}>教学仪器总值</div>
+                        <div className={css.NavContent}>1234</div>    
+                    </div>
+                    <div className={[css.NavBox, css.nav_7].join(' ')}>
+                        <div className={css.NavName}>图书馆藏书</div>
+                        <div className={css.NavContent}>1234</div>      
+                    </div>
+                    <div className={[css.NavBox, css.nav_8].join(' ')}>
+                        <div className={css.NavName}>总建筑面积</div>
+                        <div className={css.NavContent}>1234</div>       
+                    </div>
+                </div>
+            </Footer>
         </div>
     )
 }
