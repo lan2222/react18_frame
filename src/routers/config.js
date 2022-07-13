@@ -49,8 +49,12 @@ const Menu = [
                 element: <List/>
             },
             {
-                title: 'Screen',
+                title: '校情总览',
                 redirect: '/summary',
+            },
+            {
+                title: '教学总览',
+                redirect: '/jxzl',
             },
         ]
     },{
