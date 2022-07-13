@@ -5,6 +5,7 @@ import Footer from '../common/footer';
 import Block from '../common/frame/block';
 import Echart from '@/common/echarts'
 import { Progress } from 'antd';
+import css from '../screen.module.scss';
 
 export default function Jxzl() {
     // 这里可以做一个自定的 hooks 
@@ -1421,7 +1422,46 @@ class JxzlBox extends Component {
                 <Person />
             </div>
         </div>
-        <Footer/>
+        <Footer>
+            <div className={css.FooterNavList}>
+                <div className={[css.NavBox, css.nav_1].join(' ')}>
+                    <div className={css.NavName}>教职工数</div>
+                    <div className={css.NavContent}>1234</div>
+                </div>
+                <div className={[css.NavBox, css.nav_2].join(' ')}>
+                    <div className={css.NavName}>学生数</div>
+                    <div className={css.NavContent}>1234</div>      
+                </div>
+                <div className={[css.NavBox, css.nav_4,'foot_3'].join(' ')}>
+                    <div className={css.NavName}>二级学院</div>
+                    <div className={`${css.NavContent} value`}>1234</div>   
+                </div>
+                <div className={[css.NavBox, css.nav_5,'foot_4'].join(' ')}>
+                    <div className={css.NavName}>行政班级数</div>
+                    <div className={`${css.NavContent} value`}>1234</div>    
+                </div>
+                <div className={[css.NavBox, 'foot_5'].join(' ')}>
+                    <div className={css.NavName}>本学期课程数</div>
+                    <div className={`${css.NavContent} value`}>1234</div>   
+                </div>
+                <div className={[css.NavBox, 'foot_6'].join(' ')}>
+                    <div className={css.NavName}>教授上课率</div>
+                    <div className={`${css.NavContent} value`}>1234</div>   
+                </div>
+                <div className={[css.NavBox, 'foot_7'].join(' ')}>
+                    <div className={css.NavName}>教学项目数</div>
+                    <div className={`${css.NavContent} value`}>1234</div>  
+                </div>
+                <div className={[css.NavBox, 'foot_8'].join(' ')}>
+                    <div className={css.NavName}>教学成果获奖数</div>
+                    <div className={`${css.NavContent} value`}>1234</div>   
+                </div>
+                <div className={[css.NavBox, 'foot_9'].join(' ')}>
+                    <div className={css.NavName}>学科竞赛数</div>
+                    <div className={`${css.NavContent} value`}>1234</div>     
+                </div>
+            </div>
+        </Footer>
       </div>
     )
   }
